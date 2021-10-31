@@ -1,15 +1,9 @@
 ---
-title: "TG2"
-author: "Azucena Miriam Martínez Velarde"
+title: "Trabajo Gruapal - Entrega 2"
+author: "Azucena Martínez y Fiorella Díaz"
 date: "10/26/2021"
 output: html_document
-theme: sandstone
-highlight: null
 ---
-
-```{r}
-setwd("~/PUCP/Ciencias Sociales/6to ciclo/Estadistica para el análisis político 2/Trabajo grupal")
-```
 
 ```{r}
 library(rio)
@@ -18,10 +12,6 @@ library(Rmisc)
 library(psych)
 library(gplots)
 library(DescTools)
-```
-
-```{r}
-data=import("ENDO_REMOTO_2020.dta")
 ```
 
 #INTRODUCCIÓN
@@ -40,6 +30,11 @@ Por todo lo mencionado, consideramos que es importante desarrollar estudios sobr
 *Presentación de la base de datos*
 La base de datos a utilizar ha sido posible gracias a la base de datos abierta del MINEDU en la página ESCALE la cual se puede encontrar la información de la encuesta ENDO de los años 2014, 2016,2018 y 2020. Esta base de datos comprende a los servicios educativos de EBR, de gestión pública, escolarizados, activos al 2 de noviembre de 2020, excluyendo servicios educativos COAR y PRONOEI, para los cuales se cuente con información del documento de identidad de los docentes registrados en NEXUS, y con número de celular de acuerdo con el directorio telefónico consolidado por la USE. El marco muestral está compuesto por un total de 63,107 servicios educativos que cumplen con las condiciones señaladas, de un universo de 64,172 servicios educativos. En cuanto a docentes, el marco muestral considera a personas en plazas con cargo docente, activas, encargadas o designadas, y con situación laboral nombrado o contratado. 
 
+Importamos la base de datos ENDO (Encuesta Nacional a Docentes) Remota 2020
+```{r}
+data=import("ENDO_REMOTO_2020.dta")
+```
+
 *Estructura de la base de datos*
 La base de datos presentada a continuación se da a partir de la seleccion de variables que consideramos relevantes para el correcto desarrollo de nuestro trabajo
 
@@ -47,34 +42,55 @@ La base de datos presentada a continuación se da a partir de la seleccion de va
 datat=subset(data, select=c(P1_1,P1_2,P1_3,P1_4,P1_5,P1_6,P1_7,P1_9_A_LV_HORA,P1_9_A_LV_MIN,P1_9_A_SD_HORA,P1_9_A_SD_MIN,P1_9_B_LV_HORA,P1_9_B_LV_MIN,P1_9_B_SD_HORA,P1_9_B_SD_MIN,P1_9_C_LV_HORA,P1_9_C_LV_MIN,P1_9_C_SD_HORA,P1_9_C_SD_MIN,P1_9_D_LV_HORA,P1_9_D_LV_MIN,P1_9_D_SD_HORA,P1_9_D_SD_MIN,P1_9_E_LV_HORA,P1_9_E_LV_MIN,P1_9_E_SD_HORA,P1_9_E_SD_MIN,P1_11_A,P1_11_B,P1_11_C,P1_11_D,P1_11_E,P1_11_F,P1_11_G,P1_11_H,P1_11_I,P1_11_J,P1_11_K,P1_11_L,P1_11_M,P1_13,P1_15_A,P1_15_B,P1_15_C,P1_15_D,P1_15_E,P1_15_F,P1_16,P1_20A_A,P1_20A_B,P1_20A_C,P1_20A_D,P1_20A_E,P1_20B_A,P1_20B_B,P1_20B_C,P1_20B_D,P1_24_A,P1_24_B,P1_24_C,P1_24_D,P1_24_E,P1_24_F,P1_26_A,P1_26_B,P1_26_C,P1_26_D,P1_26_E,P1_27_A,P1_27_B,P1_27_C,P1_27_D,P1_27_E))
 ```
 
-A partir de esta seleccion, configuraremos los datos a partir de nuestra conveniencia 
+A partir de esta seleccion, configuraremos los datos a partir de nuestra conveniencia
+
+Variable P1_1 (sexo)
+```{r}
+str(datat$P1_1)
+datat$P1_1=as.factor(datat$P1_1)
+levels(datat$P1_4)=c("Masculino","Femenino")
+table(datat$P1_4)
+```
+
+Variable P1_2 (edad)
+```{r}
+str(datat$P1_2)
+table(datat$P1_2)
+```
+
+Variable P1_3 (n° de personas en el hogar)
+```{r}
+str(datat$P1_3)
+table(datat$P1_3)
+```
+
+Variable P1_4 (vive con personas de la tercera edad)
 ```{r}
 str(datat$P1_4)
 datat$P1_4=as.factor(datat$P1_4)
 table(datat$P1_4)
-```
 
-```{r}
 datat$P1_4 = recode(datat$P1_4, "1 = 1; 2=0")
 levels(datat$P1_4)=c("no","si")
 table(datat$P1_4)
 ```
 
+Variable P1_5 (vive con personas en el grupo de riesgo ante covid-19)
 ```{r}
 str(datat$P1_5)
 datat$P1_5=as.factor(datat$P1_5)
-table(datat$P1_5)
-```
-```{r}
 datat$P1_5 = recode(datat$P1_5, "1 = 1; 2=0")
-levels(datat$P1_5)=c("no","si")
+levels(datat$P1_5)=c("No","Sí")
 table(datat$P1_5)
 ```
 
+Variable P1_6 (a cuántos estudiantes les brinda acompañamiento como docente)
 ```{r}
 str(datat$P1_6)
 table(datat$P1_6)
 ```
+
+Variable P1_7 (condición laboral actual en la IE)
 ```{r}
 str(datat$P1_7)
 datat$P1_7=as.factor(datat$P1_7)
@@ -84,6 +100,7 @@ table(datat$P1_7)
 
 Para las variables P1_9_A_LV_HORA hasta P1_9_E_SD_MIN las recodificaremos a nuestra conveniencia en horas y por categorias
 
+Variable 
 ```{r}
 str(datat$P1_9_A_LV_MIN)
 datat$P1_9_A_LV_MIN=data$P1_9_A_LV_MIN/60
@@ -124,6 +141,7 @@ str(datat$P1_9_C_SD_MIN)
 datat$P1_9_C_SD_MIN=datat$P1_9_C_SD_MIN/60
 table(datat$P1_9_C_SD_MIN)
 ```
+
 Variable tiempo en actividades laborales de lunes a viernes en horas
 ```{r}
 datat$P1_9_L_LV=datat$P1_9_A_LV_HORA+datat$P1_9_A_LV_MIN+datat$P1_9_B_LV_HORA+datat$P1_9_B_LV_MIN+datat$P1_9_C_LV_HORA+datat$P1_9_C_LV_MIN
@@ -160,36 +178,42 @@ datat$P1_24_A=as.factor(datat$P1_24_A)
 levels(datat$P1_24_A)=c("Nada satisfecho","Poco satisfechO","Satisfecho","Muy satisfecho")
 table(datat$P1_24_A)
 ```
+
 ```{r}
 str(datat$P1_24_B)
 datat$P1_24_B=as.factor(datat$P1_24_B)
 levels(datat$P1_24_B)=c("Nada satisfecho","Poco satisfechO","Satisfecho","Muy satisfecho")
 table(datat$P1_24_B)
 ```
+
 ```{r}
 str(datat$P1_24_C)
 datat$P1_24_C=as.factor(datat$P1_24_C)
 levels(datat$P1_24_C)=c("Nada satisfecho","Poco satisfechO","Satisfecho","Muy satisfecho")
 table(datat$P1_24_C)
 ```
+
 ```{r}
 str(datat$P1_24_D)
 datat$P1_24_D=as.factor(datat$P1_24_D)
 levels(datat$P1_24_D)=c("Nada satisfecho","Poco satisfechO","Satisfecho","Muy satisfecho")
 table(datat$P1_24_D)
 ```
+
 ```{r}
 str(datat$P1_24_E)
 datat$P1_24_E=as.factor(datat$P1_24_E)
 levels(datat$P1_24_E)=c("Nada satisfecho","Poco satisfechO","Satisfecho","Muy satisfecho")
 table(datat$P1_24_E)
 ```
+
 ```{r}
 str(datat$P1_24_F)
 datat$P1_24_F=as.factor(datat$P1_24_F)
 levels(datat$P1_24_F)=c("Nada satisfecho","Poco satisfechO","Satisfecho","Muy satisfecho")
 table(datat$P1_24_F)
 ```
+
 Crearemos un indice aditivo llamado dificultad_actividades
 ```{r}
 datat$dificultad_actividades=datat$P1_26_A+datat$P1_26_B+datat$P1_26_C+datat$P1_26_D+datat$P1_26_E
@@ -200,12 +224,14 @@ summary(datat$dificultad_actividades)
 datat$dificultad_actividades=(((datat$dificultad_actividades)-5)/15)*10
 summary(datat$dificultad_actividades)
 ```
+
 Luego recodificaremos las variables que consideramos necesario para proceder con nuestro objetivo 
 ```{r}
 str(datat$P1_26_A)
 datat$P1_26_A=as.factor(datat$P1_26_A)
 table(datat$P1_26_A)
 ```
+
 ```{r}
 datat$P1_26_A = recode(datat$P1_26_A, "1 = 4; 2=3;3=2;4=1")
 levels(datat$P1_26_A)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
@@ -217,6 +243,7 @@ str(datat$P1_26_B)
 datat$P1_26_B=as.factor(datat$P1_26_B)
 table(datat$P1_26_B)
 ```
+
 ```{r}
 datat$P1_26_B = recode(datat$P1_26_B, "1 = 4; 2=3;3=2;4=1")
 levels(datat$P1_26_B)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
@@ -239,6 +266,7 @@ str(datat$P1_26_D)
 datat$P1_26_D=as.factor(datat$P1_26_D)
 table(datat$P1_26_D)
 ```
+
 ```{r}
 datat$P1_26_D = recode(datat$P1_26_D, "1 = 4; 2=3;3=2;4=1")
 levels(datat$P1_26_D)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
@@ -273,6 +301,7 @@ str(datat$P1_27_A)
 datat$P1_27_A=as.factor(datat$P1_27_A)
 table(datat$P1_27_A)
 ```
+
 ```{r}
 datat$P1_27_A = recode(datat$P1_27_A, "1 = 4; 2=3;3=2;4=1")
 levels(datat$P1_27_A)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
@@ -284,6 +313,7 @@ str(datat$P1_27_B)
 datat$P1_27_B=as.factor(datat$P1_27_B)
 table(datat$P1_27_B)
 ```
+
 ```{r}
 datat$P1_27_B = recode(datat$P1_27_B, "1 = 4; 2=3;3=2;4=1")
 levels(datat$P1_27_B)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
@@ -295,6 +325,7 @@ str(datat$P1_27_C)
 datat$P1_27_C=as.factor(datat$P1_27_C)
 table(datat$P1_27_C)
 ```
+
 ```{r}
 datat$P1_27_C = recode(datat$P1_27_C, "1 = 4; 2=3;3=2;4=1")
 levels(datat$P1_27_C)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
@@ -306,6 +337,7 @@ str(datat$P1_27_D)
 datat$P1_27_D=as.factor(datat$P1_27_D)
 table(datat$P1_27_D)
 ```
+
 ```{r}
 datat$P1_27_D = recode(datat$P1_27_D, "1 = 4; 2=3;3=2;4=1")
 levels(datat$P1_27_D)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
@@ -346,6 +378,7 @@ Variable edad
 ```{r}
 describeBy(datat$P1_6)
 ```
+
 ```{r}
 Mode(datat$P1_6,na.rm = T)
 ```
@@ -353,6 +386,7 @@ Mode(datat$P1_6,na.rm = T)
 ```{r}
 describeBy(datat$P1_9_L_LV)
 ```
+
 ```{r}
 Mode(datat$P1_9_L_LV,na.rm = T)
 ```
@@ -360,6 +394,7 @@ Mode(datat$P1_9_L_LV,na.rm = T)
 ```{r}
 describeBy(datat$P1_9_L_SD)
 ```
+
 ```{r}
 Mode(datat$P1_9_L_SD,na.rm = T)
 ```
@@ -367,6 +402,7 @@ Mode(datat$P1_9_L_SD,na.rm = T)
 ```{r}
 describeBy(datat$P1_9_D_LV)
 ```
+
 ```{r}
 Mode(datat$P1_9_D_LV,na.rm = T)
 ```
@@ -374,6 +410,7 @@ Mode(datat$P1_9_D_LV,na.rm = T)
 ```{r}
 describeBy(datat$satisfaccion)
 ```
+
 ```{r}
 Mode(datat$satisfaccion,na.rm = T)
 ```
@@ -381,6 +418,7 @@ Mode(datat$satisfaccion,na.rm = T)
 ```{r}
 describeBy(datat$dificultad_actividades)
 ```
+
 ```{r}
 Mode(datat$dificultad_actividades,na.rm = T)
 ```
@@ -388,6 +426,7 @@ Mode(datat$dificultad_actividades,na.rm = T)
 ```{r}
 describeBy(datat$dificultad_quehacer)
 ```
+
 ```{r}
 Mode(datat$dificultad_quehacer,na.rm = T)
 ```
@@ -395,6 +434,8 @@ Mode(datat$dificultad_quehacer,na.rm = T)
 
 
 *Posibles pruebas estadisticas a utilizar*
+
+
 
 
 
