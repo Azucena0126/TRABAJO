@@ -170,20 +170,40 @@ datat$P1_9_E_SD_MIN=datat$P1_9_E_SD_MIN/60
 table(datat$P1_9_E_SD_MIN)
 ```
 
-Variable indice aditivo tiempo en actividades laborales de lunes a viernes en horas
+Variable indice aditivo tiempo (en horas) en actividades laborales (de lunes a viernes)
 ```{r}
-datat$P1_9_L_LV=datat$P1_9_A_LV_HORA+datat$P1_9_A_LV_MIN+datat$P1_9_B_LV_HORA+datat$P1_9_B_LV_MIN+datat$P1_9_C_LV_HORA+datat$P1_9_C_LV_MIN
-summary(datat$P1_9_L_LV)
+datat$P1_9_LABORAL_LV=datat$P1_9_A_LV_HORA+datat$P1_9_A_LV_MIN+datat$P1_9_B_LV_HORA+datat$P1_9_B_LV_MIN+datat$P1_9_C_LV_HORA+datat$P1_9_C_LV_MIN
+summary(datat$P1_9_LABORAL_LV)
 ```
-Variable indice aditivo tiempo en actividades laborales de sabado y domingo en horas
+
+Variable indice aditivo tiempo (en horas) dedicado a actividades laborales (sabados y domingos)
 ```{r}
-datat$P1_9_L_SD=datat$P1_9_A_SD_HORA+datat$P1_9_A_SD_MIN+datat$P1_9_B_SD_HORA+datat$P1_9_B_SD_MIN+datat$P1_9_C_SD_HORA+datat$P1_9_C_SD_MIN
-summary(datat$P1_9_L_SD)
+datat$P1_9_LABORAL_SD=datat$P1_9_A_SD_HORA+datat$P1_9_A_SD_MIN+datat$P1_9_B_SD_HORA+datat$P1_9_B_SD_MIN+datat$P1_9_C_SD_HORA+datat$P1_9_C_SD_MIN
+summary(datat$P1_9_LABORAL_SD)
 ```
-Variable indice aditivo tiempo tareas domesticas de lunes a viernes en horas
+
+Variable indice aditivo tiempo (en horas) dedicado a tareas domesticas (lunes a viernes)
 ```{r}
-datat$P1_9_D_LV=datat$P1_9_D_LV_HORA+datat$P1_9_D_LV_MIN
-summary(datat$P1_9_D_LV)
+datat$P1_9_DOMESTICO_LV=datat$P1_9_D_LV_HORA+datat$P1_9_D_LV_MIN
+summary(datat$P1_9_DOMESTICO_LV)
+```
+
+Variable indice aditivo tiempo (en horas) dedicado a tareas domesticas (sábados y domingos)
+```{r}
+datat$P1_9_DOMESTICO_SD=datat$P1_9_D_SD_HORA+datat$P1_9_D_SD_MIN
+summary(datat$P1_9_DOMESTICO_SD)
+```
+
+Variable indice aditivo tiempo (en horas) dedicado a en entretenimiento y deporte (lunes a viernes)
+```{r}
+datat$P1_9_OCIO_LV=datat$P1_9_E_LV_HORA+datat$P1_9_E_LV_MIN
+summary(datat$P1_9_OCIO_LV)
+```
+
+Variable indice aditivo tiempo (en horas) dedicado a en entretenimiento y deporte (sábados y domingos)
+```{r}
+datat$P1_9_OCIO_SD=datat$P1_9_E_SD_HORA+datat$P1_9_E_SD_MIN
+summary(datat$P1_9_OCIO_SD)
 ```
 
 Crearemos un indice aditivo llamado enfermedades
@@ -306,7 +326,7 @@ table(datat$P1_13)
 
 Crearemos un indice aditivo llamado situaciones
 ```{r}
-datat$enfermedades=datat$P1_15_A+datat$P1_15_B+datat$P1_15_C+datat$P1_15_D+datat$P1_15_E+datat$P1_15_F
+datat$situaciones=datat$P1_15_A+datat$P1_15_B+datat$P1_15_C+datat$P1_15_D+datat$P1_15_E+datat$P1_15_F
 summary(datat$situaciones)
 ```
 
@@ -368,7 +388,7 @@ table(datat$P1_16)
 
 Crearemos un indice aditivo llamado programas
 ```{r}
-datat$enfermedades=datat$P1_20A_A+datat$P1_20A_B+datat$P1_20A_C+datat$P1_20A_D+datat$P1_20A_E
+datat$programas=datat$P1_20A_A+datat$P1_20A_B+datat$P1_20A_C+datat$P1_20A_D+datat$P1_20A_E
 summary(datat$programas)
 ```
 
@@ -670,6 +690,7 @@ Se plantea como hipótesis que los factores que más han afectado el desarrollo 
 ```{r}
 describeBy(datat$P1_6)
 ```
+
 ```{r}
 Mode(datat$P1_6,na.rm = T)
 range(datat$P1_6, na.rm = T)
@@ -686,17 +707,18 @@ var(datat$P1_6, na.rm = T) #varianza
 
 #Variable tiempo en actividades laborales de lunes a viernes en horas
 ```{r}
-describeBy(datat$P1_9_L_LV)
+describeBy(datat$P1_9_LABORAL_LV)
 ```
+
 ```{r}
-Mode(datat$P1_9_L_LV,na.rm = T)
-range(datat$P1_9_L_LV, na.rm = T)
-quantile(datat$P1_9_L_LV, na.rm=T)
-IQR(datat$P1_9_L_LV, na.rm = T)
-var(datat$P1_9_L_LV, na.rm = T) #varianza
+Mode(datat$P1_9_LABORAL_LV,na.rm = T)
+range(datat$P1_9_LABORAL_LV, na.rm = T)
+quantile(datat$P1_9_LABORAL_LV, na.rm=T)
+IQR(datat$P1_9_LABORAL_LV, na.rm = T)
+var(datat$P1_9_LABORAL_LV, na.rm = T) #varianza
 ```
 #INTERPRETACION
-*Se tiene como tiempo en actividades laborales de lunes a viernes en horas promedio de 8.96 horas de los datos obtenidos. Asímismo, el tiempo empleado con más frecuencia ( 2881 veces) es 8; además, la posicion central de la horas empleadas se da en 8* 
+*Se tiene como tiempo en actividades laborales de lunes a viernes en horas promedio de 8.96 horas de los datos obtenidos. Asímismo, el tiempo empleado con más frecuencia (2881 veces) es 8; además, la posicion central de la horas empleadas se da en 8* 
 *El rango que presenta la variable es de 70 y el rango intercuartil es 3. El promedio de las puntuaciones de esta distribucion es de 16.47697, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de 4.06*
 *Los datos agrupados alrededor de la moda es de 37.81, por lo tanto es una concentracion de forma lepocurtica*
 *Por otro lado, el grado de sesgo es de 4.28, lo que significa que nuestra variable representada tiene una asimetria a la derecha* 
@@ -704,42 +726,157 @@ var(datat$P1_9_L_LV, na.rm = T) #varianza
 
 #Variable tiempo en actividades laborales  sábados y domingo en horas
 ```{r}
-describeBy(datat$P1_9_L_SD)
+describeBy(datat$P1_9_LABORAL_SD)
 ```
+
 ```{r}
-Mode(datat$P1_9_L_SD,na.rm = T)
-range(datat$P1_9_L_SD, na.rm = T)
-quantile(datat$P1_9_L_SD, na.rm=T)
-IQR(datat$P1_9_L_SD, na.rm = T)
-var(datat$P1_9_L_SD, na.rm = T) #varianza
+Mode(datat$P1_9_LABORAL_SD,na.rm = T)
+range(datat$P1_9_LABORAL_SD, na.rm = T)
+quantile(datat$P1_9_LABORAL_SD, na.rm=T)
+IQR(datat$P1_9_LABORAL_SD, na.rm = T)
+var(datat$P1_9_LABORAL_SD, na.rm = T) #varianza
 ```
 #INTERPRETACION
-*Se tiene como tiempo en actividades laborales de sábados y domingo en horas promedio de 5.46 horas de los datos obtenidos. Asímismo, el tiempo empleado con más frecuencia ( 2642 veces) es 4; además, la posicion central de la horas empleadas se da lugar en 5* 
+*Se tiene como tiempo en actividades laborales de sábados y domingo en horas promedio de 5.46 horas de los datos obtenidos. Asímismo, el tiempo empleado con más frecuencia (2642 veces) es 4; además, la posicion central de la horas empleadas se da lugar en 5* 
 *El rango que presenta la variable es de 32	 y el rango intercuartil es 4. El promedio de las puntuaciones de esta distribucion es de 12.9893, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de 3.6*
 *Los datos agrupados alrededor de la moda es de 2.2, por lo tanto es una concentracion de forma lepocurtica*
 *Por otro lado, el grado de sesgo es de 1.09, lo que significa que nuestra variable representada tiene una asimetria a la derecha* 
 
-#Variable tiempo en tareas domésticas y cuidado de lunes a viernes en horas
+
+#Variable tiempo (en horas) dedicado a tareas domésticas y cuidado (lunes a viernes)
 ```{r}
-describeBy(datat$P1_9_D_LV)
+describeBy(datat$P1_9_DOMESTICO_LV)
 ```
+
 ```{r}
-Mode(datat$P1_9_D_LV,na.rm = T)
-range(datat$P1_9_D_LV, na.rm = T)
-quantile(datat$P1_9_D_LV, na.rm=T)
-IQR(datat$P1_9_D_LV, na.rm = T)
-var(datat$P1_9_D_LV, na.rm = T) #varianza
+Mode(datat$P1_9_DOMESTICO_LV,na.rm = T)
+range(datat$P1_9_DOMESTICO_LV, na.rm = T)
+quantile(datat$P1_9_DOMESTICO_LV, na.rm=T)
+IQR(datat$P1_9_DOMESTICO_LV, na.rm = T)
+var(datat$P1_9_DOMESTICO_LV, na.rm = T) #varianza
 ```
 #INTERPRETACION
-*Se tiene como tareas domésticas y cuidado de lunes a viernes en horas promedio de 3.09 horas de los datos obtenidos. Asímismo, el tiempo empleado con más frecuencia ( 5331 veces) es 2 horas; además, la posicion central de la horas empleadas se da lugar en 3 horas* 
+*Se tiene como dato de tiempo (en horas) dedicado a tareas domésticas y cuidado (lunes a viernes) un promedio de 3.09 horas de los datos obtenidos. Asímismo, el tiempo empleado con más frecuencia (5331 veces) es 2 horas; además, la posicion central de la horas empleadas se da lugar en 3 horas* 
 *El rango que presenta la variable es de 30	 y el rango intercuartil es 2. El promedio de las puntuaciones de esta distribucion es de 3.698191, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de 1.92*
 *Los datos agrupados alrededor de la moda es de 29.34, por lo tanto es una concentracion de forma lepocurtica*
 *Por otro lado, el grado de sesgo es de 3.29, lo que significa que nuestra variable representada tiene una asimetria a la derecha* 
+
+
+#Variable tiempo (en horas) dedicado a tareas domésticas y cuidado (sábado y domingo)
+```{r}
+describeBy(datat$P1_9_DOMESTICO_SD)
+```
+
+```{r}
+Mode(datat$P1_9_DOMESTICO_SD,na.rm = T)
+range(datat$P1_9_DOMESTICO_SD, na.rm = T)
+quantile(datat$P1_9_DOMESTICO_SD, na.rm=T)
+IQR(datat$P1_9_DOMESTICO_SD, na.rm = T)
+var(datat$P1_9_DOMESTICO_SD, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene como dato de tiempo (en horas) dedicado a tareas domésticas y cuidado (sábado y domingo) un promedio de _____ horas de los datos obtenidos. Asímismo, el tiempo empleado con más frecuencia (_____ veces) es _____ horas; además, la posicion central de la horas empleadas se da lugar en _____ horas* 
+*El rango que presenta la variable es de _____ y el rango intercuartil es _____. El promedio de las puntuaciones de esta distribucion es de _____, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de _____*
+*Los datos agrupados alrededor de la moda es de _____, por lo tanto es una concentracion de forma _____*
+*Por otro lado, el grado de sesgo es de _____, lo que significa que nuestra variable representada tiene una asimetria a la derecha* 
+
+#Variable tiempo (en horas) dedicado a entretenimiento y deporte (lunes a viernes)
+```{r}
+describeBy(datat$P1_9_DOMESTICO_LV)
+```
+
+```{r}
+Mode(datat$P1_9_OCIO_LV,na.rm = T)
+range(datat$P1_9_OCIO_LV, na.rm = T)
+quantile(datat$P1_9_OCIO_LV, na.rm=T)
+IQR(datat$P1_9_OCIO_LV, na.rm = T)
+var(datat$P1_9_OCIO_LV, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene un tiempo (en horas) dedicado a entretenimiento y deporte (lunes a viernes) promedio de ___ horas de los datos obtenidos. Asímismo, el tiempo empleado con más frecuencia (8153 veces) es 1 hora; además, la posicion central de la horas empleadas se da lugar en 1 hora* 
+*El rango que presenta la variable es de 30	y el rango intercuartil es 1.66. El promedio de las puntuaciones de esta distribucion es de 0.99, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de ___*
+*Los datos agrupados alrededor de la moda es de ___, por lo tanto es una concentracion de forma ______*
+*Por otro lado, el grado de sesgo es de ___, lo que significa que nuestra variable representada tiene una asimetria a la derecha*
+
+#Variable tiempo (en horas) dedicado a entretenimiento y deporte (sábado y domingo)
+```{r}
+describeBy(datat$P1_9_OCIO_SD)
+```
+
+```{r}
+Mode(datat$P1_9_OCIO_SD,na.rm = T)
+range(datat$P1_9_OCIO_SD, na.rm = T)
+quantile(datat$P1_9_OCIO_SD, na.rm=T)
+IQR(datat$P1_9_OCIO_SD, na.rm = T)
+var(datat$P1_9_OCIO_SD, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene un tiempo (en horas) dedicado a entretenimiento y deporte (sábado y domingo) promedio de ___ horas de los datos obtenidos. Asímismo, el tiempo empleado con más frecuencia (5998 veces) es 2 horas; además, la posicion central de la horas empleadas se da lugar en 2 horas* 
+*El rango que presenta la variable es de 15	y el rango intercuartil es 2. El promedio de las puntuaciones de esta distribucion es de 2.79, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de ___*
+*Los datos agrupados alrededor de la moda es de ___, por lo tanto es una concentracion de forma ____*
+*Por otro lado, el grado de sesgo es de ___, lo que significa que nuestra variable representada tiene una asimetria a la derecha*
+
+#Varible: indice aditivo enfermedades del docente
+```{r}
+describeBy(datat$enfermedades)
+```
+
+```{r}
+Mode(datat$enfermedades,na.rm = T)
+range(datat$enfermedades, na.rm = T)
+quantile(datat$enfermedades, na.rm=T)
+IQR(datat$enfermedades, na.rm = T)
+var(datat$enfermedades, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene como dato respecto a enfermedades un promedio de ___ horas de los datos obtenidos. Asímismo, el tiempo empleado con más frecuencia (4576 veces) es 1 hora; además, la posicion central de la horas empleadas se da lugar en 2 horas* 
+*El rango que presenta la variable es de 11	y el rango intercuartil es 2. El promedio de las puntuaciones de esta distribucion es de ____, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de ___*
+*Los datos agrupados alrededor de la moda es de ___, por lo tanto es una concentracion de forma ____*
+*Por otro lado, el grado de sesgo es de ___, lo que significa que nuestra variable representada tiene una asimetria a la derecha*
+
+#Varible: indice aditivo situaciones que alguno de los miembros del hogar tuvo que atravesar 
+```{r}
+describeBy(datat$situaciones)
+```
+
+```{r}
+Mode(datat$situaciones,na.rm = T)
+range(datat$situaciones, na.rm = T)
+quantile(datat$situaciones, na.rm=T)
+IQR(datat$situaciones, na.rm = T)
+var(datat$situaciones, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene como dato respecto a situaciones que alguno de los miembros del hogar tuvo que atravesar un promedio de ____ de los datos obtenidos. Asímismo, el dato de satisfaccion empleado con más frecuencia (5751 veces) es 1 además, la posicion central del grado de satisfaccion da lugar en ____* 
+*El rango que presenta la variable es de 6	 y el rango intercuartil es 2. El promedio de las puntuaciones de esta distribucion es de  ____, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de ____*
+*Los datos agrupados alrededor de la moda es de ____, por lo tanto es una concentracion de forma ____*
+*Por otro lado, el grado de sesgo es de ____, lo que significa que nuestra variable representada tiene una asimetria a la izquierda* 
+
+
+#Varible: indice aditivo programas o estrategias formativa de las que participó el docente
+```{r}
+describeBy(datat$programas)
+```
+
+```{r}
+Mode(datat$programas,na.rm = T)
+range(datat$programas, na.rm = T)
+quantile(datat$programas, na.rm=T)
+IQR(datat$programas, na.rm = T)
+var(datat$programas, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene como dato respecto programas o estrategias formativa de las que participó el docente un promedio de ____ de los datos obtenidos. Asímismo, el dato de satisfaccion empleado con más frecuencia (7132 veces) es 3 además, la posicion central del grado de satisfaccion da lugar en ____* 
+*El rango que presenta la variable es de____	 y el rango intercuartil es 1. El promedio de las puntuaciones de esta distribucion es de  ____, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de ____*
+*Los datos agrupados alrededor de la moda es de ____, por lo tanto es una concentracion de forma ____*
+*Por otro lado, el grado de sesgo es de ____, lo que significa que nuestra variable representada tiene una asimetria a la izquierda* 
+
 
 #Varible: indice aditivo satisfaccion del docente
 ```{r}
 describeBy(datat$satisfaccion)
 ```
+
 ```{r}
 Mode(datat$satisfaccion,na.rm = T)
 range(datat$satisfaccion, na.rm = T)
@@ -748,15 +885,17 @@ IQR(datat$satisfaccion, na.rm = T)
 var(datat$satisfaccion, na.rm = T) #varianza
 ```
 #INTERPRETACION
-*Se tiene como  dato respecto satisfaccion del docente se da en un promedio de 6.71 de los datos obtenidos. Asímismo, el dato de satisfaccion empleado con más frecuencia ( 2817 veces) es 6.111111 además, la posicion central del grado de satisfaccion da lugar en 6.67* 
+*Se tiene como  dato respecto satisfaccion del docente se da en un promedio de 6.71 de los datos obtenidos. Asímismo, el dato de satisfaccion empleado con más frecuencia (2817 veces) es 6.111111 además, la posicion central del grado de satisfaccion da lugar en 6.67* 
 *El rango que presenta la variable es de 10	 y el rango intercuartil es  2.222222. El promedio de las puntuaciones de esta distribucion es de  2.199664, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de 1.48*
 *Los datos agrupados alrededor de la moda es de -0.18	, por lo tanto es una concentracion de forma platicurtica*
 *Por otro lado, el grado de sesgo es de -0.04	, lo que significa que nuestra variable representada tiene una asimetria a la izquierda* 
+
 
 #Variable indice aditivo de la dificultad de las actividades
 ```{r}
 describeBy(datat$dificultad_actividades)
 ```
+
 ```{r}
 Mode(datat$dificultad_actividades,na.rm = T)
 range(datat$dificultad_actividades, na.rm = T)
@@ -770,10 +909,12 @@ var(datat$dificultad_actividades, na.rm = T) #varianza
 *Los datos agrupados alrededor de la moda es de 0.37, por lo tanto es una concentracion de forma leptocurtica*
 *Por otro lado, el grado de sesgo es de -0.02	, lo que significa que nuestra variable representada tiene una asimetria a la izquierda* 
 
+
 #Variable indice aditivo dificultad del quehacer docente
 ```{r}
 describeBy(datat$dificultad_quehacer)
 ```
+
 ```{r}
 Mode(datat$dificultad_quehacer,na.rm = T)
 range(datat$dificultad_quehacer, na.rm = T)
@@ -782,7 +923,7 @@ IQR(datat$dificultad_quehacer, na.rm = T)
 var(datat$dificultad_quehacer, na.rm = T) #varianza
 ```
 #INTERPRETACION
-*Se tiene como  dato respecto la dificultad de las actividades se da en un promedio de 5.4 de los datos obtenidos. Asímismo, el dato de satisfaccion empleado con más frecuencia (2838veces) es 5.333333 además, la posicion central del grado de satisfaccion da lugar en 5.33* 
+*Se tiene como  dato respecto la dificultad de las actividades se da en un promedio de 5.4 de los datos obtenidos. Asímismo, el dato de satisfaccion empleado con más frecuencia (2838 veces) es 5.333333 además, la posicion central del grado de satisfaccion da lugar en 5.33* 
 *El rango que presenta la variable es de 10	 y el rango intercuartil es 2.666667. El promedio de las puntuaciones de esta distribucion es de 3.012781, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de 1.74*
 *Los datos agrupados alrededor de la moda es de 0.29, por lo tanto es una concentracion de forma leptocurtica*
 *Por otro lado, el grado de sesgo es de 0.13, lo que significa que nuestra variable representada tiene una asimetria a la derecha* 
