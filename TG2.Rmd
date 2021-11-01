@@ -170,17 +170,17 @@ datat$P1_9_E_SD_MIN=datat$P1_9_E_SD_MIN/60
 table(datat$P1_9_E_SD_MIN)
 ```
 
-Variable tiempo en actividades laborales de lunes a viernes en horas
+Variable indice aditivo tiempo en actividades laborales de lunes a viernes en horas
 ```{r}
 datat$P1_9_L_LV=datat$P1_9_A_LV_HORA+datat$P1_9_A_LV_MIN+datat$P1_9_B_LV_HORA+datat$P1_9_B_LV_MIN+datat$P1_9_C_LV_HORA+datat$P1_9_C_LV_MIN
 summary(datat$P1_9_L_LV)
 ```
-
+Variable indice aditivo tiempo en actividades laborales de sabado y domingo en horas
 ```{r}
 datat$P1_9_L_SD=datat$P1_9_A_SD_HORA+datat$P1_9_A_SD_MIN+datat$P1_9_B_SD_HORA+datat$P1_9_B_SD_MIN+datat$P1_9_C_SD_HORA+datat$P1_9_C_SD_MIN
 summary(datat$P1_9_L_SD)
 ```
-
+Variable indice aditivo tiempo tareas domesticas de lunes a viernes en horas
 ```{r}
 datat$P1_9_D_LV=datat$P1_9_D_LV_HORA+datat$P1_9_D_LV_MIN
 summary(datat$P1_9_D_LV)
@@ -458,6 +458,7 @@ summary(datat$satisfaccion)
 ```
 
 Luego recodificaremos las variables que consideramos necesario para proceder con nuestro objetivo 
+P1_24_A: ¿Cuán satisfecho está usted con su vida?
 ```{r}
 str(datat$P1_24_A)
 datat$P1_24_A=as.factor(datat$P1_24_A)
@@ -465,6 +466,7 @@ levels(datat$P1_24_A)=c("Nada satisfecho","Poco satisfechO","Satisfecho","Muy sa
 table(datat$P1_24_A)
 ```
 
+P1_24_B: ¿Cuán satisfecho está usted con su salud?
 ```{r}
 str(datat$P1_24_B)
 datat$P1_24_B=as.factor(datat$P1_24_B)
@@ -472,6 +474,7 @@ levels(datat$P1_24_B)=c("Nada satisfecho","Poco satisfechO","Satisfecho","Muy sa
 table(datat$P1_24_B)
 ```
 
+P1_24_C: ¿Cuán satisfecho está usted con las condiciones de vida que le puede dar a sus hijos/familia?
 ```{r}
 str(datat$P1_24_C)
 datat$P1_24_C=as.factor(datat$P1_24_C)
@@ -479,6 +482,7 @@ levels(datat$P1_24_C)=c("Nada satisfecho","Poco satisfechO","Satisfecho","Muy sa
 table(datat$P1_24_C)
 ```
 
+P1_24_D:¿Cuán satisfecho está usted con las condiciones de su jubilación futura?
 ```{r}
 str(datat$P1_24_D)
 datat$P1_24_D=as.factor(datat$P1_24_D)
@@ -486,13 +490,14 @@ levels(datat$P1_24_D)=c("Nada satisfecho","Poco satisfechO","Satisfecho","Muy sa
 table(datat$P1_24_D)
 ```
 
+P1_24_E: ¿Cuán satisfecho está usted con su empleo en esta IE?
 ```{r}
 str(datat$P1_24_E)
 datat$P1_24_E=as.factor(datat$P1_24_E)
 levels(datat$P1_24_E)=c("Nada satisfecho","Poco satisfechO","Satisfecho","Muy satisfecho")
 table(datat$P1_24_E)
 ```
-
+P1_24_F:¿Cuán satisfecho está usted con las condiciones para realizar su labor como docente?
 ```{r}
 str(datat$P1_24_F)
 datat$P1_24_F=as.factor(datat$P1_24_F)
@@ -512,30 +517,31 @@ summary(datat$dificultad_actividades)
 ```
 
 Luego recodificaremos las variables que consideramos necesario para proceder con nuestro objetivo 
+P1_26_A: qué tan fácil o difícil es llevar a cabo la planificación de la enseñanza de forma individual y colegiada
 ```{r}
 str(datat$P1_26_A)
 datat$P1_26_A=as.factor(datat$P1_26_A)
 table(datat$P1_26_A)
 ```
-
 ```{r}
 datat$P1_26_A = recode(datat$P1_26_A, "1 = 4; 2=3;3=2;4=1")
 levels(datat$P1_26_A)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
 table(datat$P1_26_A)
 ```
 
+P1_26_B:qué tan fácil o difícil es llevar a cabo sistematizar su práctica pedagógica
 ```{r}
 str(datat$P1_26_B)
 datat$P1_26_B=as.factor(datat$P1_26_B)
 table(datat$P1_26_B)
 ```
-
 ```{r}
 datat$P1_26_B = recode(datat$P1_26_B, "1 = 4; 2=3;3=2;4=1")
 levels(datat$P1_26_B)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
 table(datat$P1_26_B)
 ```
 
+P1_26_C:qué tan fácil o difícil es llevar a cabo la reflexión sobre los resultados de su práctica pedagógica?
 ```{r}
 str(datat$P1_26_C)
 datat$P1_26_C=as.factor(datat$P1_26_C)
@@ -547,18 +553,19 @@ levels(datat$P1_26_C)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
 table(datat$P1_26_C)
 ```
 
+P1_26_D: qué tan fácil o difícil es llevar a cabo la participación en la gestión de la IE
 ```{r}
 str(datat$P1_26_D)
 datat$P1_26_D=as.factor(datat$P1_26_D)
 table(datat$P1_26_D)
 ```
-
 ```{r}
 datat$P1_26_D = recode(datat$P1_26_D, "1 = 4; 2=3;3=2;4=1")
 levels(datat$P1_26_D)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
 table(datat$P1_26_D)
 ```
 
+P1_26_E:qué tan fácil o difícil es llevar a cabo la  participación en procesos de aprendizaje
 ```{r}
 str(datat$P1_26_E)
 datat$P1_26_E=as.factor(datat$P1_26_E)
@@ -569,67 +576,67 @@ datat$P1_26_E = recode(datat$P1_26_E, "1 = 4; 2=3;3=2;4=1")
 levels(datat$P1_26_E)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
 table(datat$P1_26_E)
 ```
+
 Creamos el indice aditivo dificultad_quehacer
 ```{r}
 datat$dificultad_quehacer=datat$P1_27_A+datat$P1_27_B+datat$P1_27_C+datat$P1_27_D+datat$P1_27_E
 summary(datat$dificultad_quehacer)
 ```
-
-
 ```{r}
 datat$dificultad_quehacer=(((datat$dificultad_quehacer)-5)/15)*10
 summary(datat$dificultad_quehacer)
 ```
 
 Luego recodificaremos las variables que consideramos necesario para proceder con nuestro objetivo 
+P1_27_A:qué tan fácil o difícil es comunicarse y retroalimentar y motivar a las y los estudiantes
 ```{r}
 str(datat$P1_27_A)
 datat$P1_27_A=as.factor(datat$P1_27_A)
 table(datat$P1_27_A)
 ```
-
 ```{r}
 datat$P1_27_A = recode(datat$P1_27_A, "1 = 4; 2=3;3=2;4=1")
 levels(datat$P1_27_A)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
 table(datat$P1_27_A)
 ```
 
+P1_27_B:qué tan fácil o difícil es atender los problemas socioemocionales de las y los estudiantes
 ```{r}
 str(datat$P1_27_B)
 datat$P1_27_B=as.factor(datat$P1_27_B)
 table(datat$P1_27_B)
 ```
-
 ```{r}
 datat$P1_27_B = recode(datat$P1_27_B, "1 = 4; 2=3;3=2;4=1")
 levels(datat$P1_27_B)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
 table(datat$P1_27_B)
 ```
 
+P1_27_C: qué tan fácil o difícil es virtualizar la enseñanza, adaptando y/o complementando las sesiones de “Aprendo en casa”, según necesidades de las y los estudiantes
 ```{r}
 str(datat$P1_27_C)
 datat$P1_27_C=as.factor(datat$P1_27_C)
 table(datat$P1_27_C)
 ```
-
 ```{r}
 datat$P1_27_C = recode(datat$P1_27_C, "1 = 4; 2=3;3=2;4=1")
 levels(datat$P1_27_C)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
 table(datat$P1_27_C)
 ```
 
+P1_27_D: qué tan fácil o difícil es coordinar y responder a la demanda de los padres y madres de familia
 ```{r}
 str(datat$P1_27_D)
 datat$P1_27_D=as.factor(datat$P1_27_D)
 table(datat$P1_27_D)
 ```
-
 ```{r}
 datat$P1_27_D = recode(datat$P1_27_D, "1 = 4; 2=3;3=2;4=1")
 levels(datat$P1_27_D)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
 table(datat$P1_27_D)
 ```
 
+P1_27_E:qué tan fácil o difícil es planificar actividades bajo el enfoque por competencias del Currículo Nacional de la Educación Básica
 ```{r}
 str(datat$P1_27_E)
 datat$P1_27_E=as.factor(datat$P1_27_E)
@@ -658,7 +665,6 @@ Se plantea como hipótesis que los factores que más han afectado el desarrollo 
 
 
 *Hallando las medidas de dispersion y centralidad de las variables numericas a utilizar en nuestro trabajo*
-
 
 #Variable edad
 ```{r}
