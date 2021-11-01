@@ -44,7 +44,7 @@ datat=subset(data, select=c(P1_1,P1_2,P1_3,P1_4,P1_5,P1_6,P1_7,P1_9_A_LV_HORA,P1
 
 A partir de esta seleccion, configuraremos los datos a partir de nuestra conveniencia
 
-Variable P1_1 (sexo)
+Variable P1_1: sexo
 ```{r}
 str(datat$P1_1)
 datat$P1_1=as.factor(datat$P1_1)
@@ -52,19 +52,19 @@ levels(datat$P1_4)=c("Masculino","Femenino")
 table(datat$P1_4)
 ```
 
-Variable P1_2 (edad)
+Variable P1_2: edad
 ```{r}
 str(datat$P1_2)
 table(datat$P1_2)
 ```
 
-Variable P1_3 (n° de personas en el hogar)
+Variable P1_3: n° de personas en el hogar
 ```{r}
 str(datat$P1_3)
 table(datat$P1_3)
 ```
 
-Variable P1_4 (vive con personas de la tercera edad)
+Variable P1_4: vive con personas de la tercera edad
 ```{r}
 str(datat$P1_4)
 datat$P1_4=as.factor(datat$P1_4)
@@ -75,7 +75,7 @@ levels(datat$P1_4)=c("no","si")
 table(datat$P1_4)
 ```
 
-Variable P1_5 (vive con personas en el grupo de riesgo ante covid-19)
+Variable P1_5: vive con personas en el grupo de riesgo ante covid-19
 ```{r}
 str(datat$P1_5)
 datat$P1_5=as.factor(datat$P1_5)
@@ -84,13 +84,13 @@ levels(datat$P1_5)=c("No","Sí")
 table(datat$P1_5)
 ```
 
-Variable P1_6 (a cuántos estudiantes les brinda acompañamiento como docente)
+Variable P1_6: a cuántos estudiantes les brinda acompañamiento como docente
 ```{r}
 str(datat$P1_6)
 table(datat$P1_6)
 ```
 
-Variable P1_7 (condición laboral actual en la IE)
+Variable P1_7: condición laboral actual en la IE
 ```{r}
 str(datat$P1_7)
 datat$P1_7=as.factor(datat$P1_7)
@@ -100,46 +100,74 @@ table(datat$P1_7)
 
 Para las variables P1_9_A_LV_HORA hasta P1_9_E_SD_MIN las recodificaremos a nuestra conveniencia en horas y por categorias
 
-Variable 
+Variable P1_9_A_LV_MIN: tiempo (en minutos) dedicado a preparar clases y labores administrativas (lunes a viernes)
 ```{r}
 str(datat$P1_9_A_LV_MIN)
 datat$P1_9_A_LV_MIN=data$P1_9_A_LV_MIN/60
 table(datat$P1_9_A_LV_MIN)
 ```
 
-```{r}
-str(datat$P1_9_B_LV_MIN)
-datat$P1_9_B_LV_MIN=datat$P1_9_B_LV_MIN/60
-table(datat$P1_9_B_LV_MIN)
-```
-```{r}
-str(datat$P1_9_C_LV_MIN)
-datat$P1_9_C_LV_MIN=datat$P1_9_C_LV_MIN/60
-table(datat$P1_9_C_LV_MIN)
-```
-
-```{r}
-str(datat$P1_9_D_LV_MIN)
-datat$P1_9_D_LV_MIN=datat$P1_9_D_LV_MIN/60
-table(datat$P1_9_D_LV_MIN)
-```
-
+Variable P1_9_A_SD_MIN: tiempo (en minutos) dedicado a preparar clases y labores administrativas (sábados y domingos)
 ```{r}
 str(datat$P1_9_A_SD_MIN)
 datat$P1_9_A_SD_MIN=datat$P1_9_A_SD_MIN/60
 table(datat$P1_9_A_SD_MIN)
 ```
 
+Variable P1_9_B_LV_MIN: tiempo (en minutos) dedicado a retroalimentar , evaluar a las y los estudiantes y atender a los padres de familia (lunes a viernes)
+```{r}
+str(datat$P1_9_B_LV_MIN)
+datat$P1_9_B_LV_MIN=datat$P1_9_B_LV_MIN/60
+table(datat$P1_9_B_LV_MIN)
+```
+
+Variable P1_9_B_SD_MIN: tiempo (en minutos) dedicado a retroalimentar , evaluar a las y los estudiantes y atender a los padres de familia (sábados y domingos)
 ```{r}
 str(datat$P1_9_B_SD_MIN)
 datat$P1_9_B_SD_MIN=datat$P1_9_B_SD_MIN/60
 table(datat$P1_9_B_SD_MIN)
 ```
 
+Variable P1_9_C_LV_MIN: tiempo (en minutos) dedicado a trabajar de forma colegiada con los colegas de la IE (lunes a viernes)
+```{r}
+str(datat$P1_9_C_LV_MIN)
+datat$P1_9_C_LV_MIN=datat$P1_9_C_LV_MIN/60
+table(datat$P1_9_C_LV_MIN)
+```
+
+Variable P1_9_C_SD_MIN: tiempo (en minutos) dedicado a trabajar de forma colegiada con los colegas de la IE (sábados y domingos)
 ```{r}
 str(datat$P1_9_C_SD_MIN)
 datat$P1_9_C_SD_MIN=datat$P1_9_C_SD_MIN/60
 table(datat$P1_9_C_SD_MIN)
+```
+
+Variable P1_9_D_LV_MIN: tiempo (en minutos) dedicado a tareas domésticas y cuidado de los hijos y/o de padres (lunes a viernes)
+```{r}
+str(datat$P1_9_D_LV_MIN)
+datat$P1_9_D_LV_MIN=datat$P1_9_D_LV_MIN/60
+table(datat$P1_9_D_LV_MIN)
+```
+
+Variable P1_9_D_SD_MIN: tiempo (en minutos) dedicado a tareas domésticas y cuidado de los hijos y/o de padres (sábados y domingos)
+```{r}
+str(datat$P1_9_D_SD_MIN)
+datat$P1_9_D_SD_MIN=datat$P1_9_D_SD_MIN/60
+table(datat$P1_9_D_SD_MIN)
+```
+
+Variable P1_9_E_LV_MIN: tiempo (en minutos) dedicado a en entretenimiento y deporte (lunes a viernes)
+```{r}
+str(datat$P1_9_E_LV_MIN)
+datat$P1_9_E_LV_MIN=datat$P1_9_E_LV_MIN/60
+table(datat$P1_9_E_LV_MIN)
+```
+
+Variable P1_9_E_SD_MIN: tiempo (en minutos) dedicado a entretenimiento y deporte (sábados y domingos)
+```{r}
+str(datat$P1_9_E_SD_MIN)
+datat$P1_9_E_SD_MIN=datat$P1_9_E_SD_MIN/60
+table(datat$P1_9_E_SD_MIN)
 ```
 
 Variable tiempo en actividades laborales de lunes a viernes en horas
@@ -156,6 +184,264 @@ summary(datat$P1_9_L_SD)
 ```{r}
 datat$P1_9_D_LV=datat$P1_9_D_LV_HORA+datat$P1_9_D_LV_MIN
 summary(datat$P1_9_D_LV)
+```
+
+Crearemos un indice aditivo llamado enfermedades
+```{r}
+datat$enfermedades=datat$P1_11_A+datat$P1_11_B+datat$P1_11_C+datat$P1_11_D+datat$P1_11_E+datat$P1_11_F+datat$P1_11_G+datat$P1_11_H+datat$P1_11_I+datat$P1_11_J+datat$P1_11_K+datat$P1_11_L+datat$P1_11_M
+summary(datat$enfermedades)
+```
+
+Variable P1_11_A: el docente sufrió de problemas de garganta o voz
+```{r}
+str(datat$P1_11_A)
+datat$P1_11_A=as.factor(datat$P1_11_A)
+levels(datat$P1_11_A)=c("No","Sí")
+table(datat$P1_11_A)
+```
+
+Variable P1_11_B: el docente sufrió de enfermedades respiratorias
+```{r}
+str(datat$P1_11_B)
+datat$P1_11_B=as.factor(datat$P1_11_B)
+levels(datat$P1_11_B)=c("No","Sí")
+table(datat$P1_11_B)
+```
+
+Variable P1_11_C: el docente sufrió de  tuberculosis
+```{r}
+str(datat$P1_11_C)
+datat$P1_11_C=as.factor(datat$P1_11_C)
+levels(datat$P1_11_C)=c("No","Sí")
+table(datat$P1_11_C)
+```
+
+Variable P1_11_D: el docente sufrió de sobrepeso/obesidad
+```{r}
+str(datat$P1_11_D)
+datat$P1_11_D=as.factor(datat$P1_11_D)
+levels(datat$P1_11_D)=c("No","Sí")
+table(datat$P1_11_D)
+```
+
+Variable P1_11_E: el docente sufrió de estrés
+```{r}
+str(datat$P1_11_E)
+datat$P1_11_E=as.factor(datat$P1_11_E)
+levels(datat$P1_11_E)=c("No","Sí")
+table(datat$P1_11_E)
+```
+
+Variable P1_11_F: el docente sufrió de ansiedad
+```{r}
+str(datat$P1_11_F)
+datat$P1_11_F=as.factor(datat$P1_11_F)
+levels(datat$P1_11_F)=c("No","Sí")
+table(datat$P1_11_F)
+```
+
+Variable P1_11_G: el docente sufrió de depresión
+```{r}
+str(datat$P1_11_G)
+datat$P1_11_G=as.factor(datat$P1_11_G)
+levels(datat$P1_11_G)=c("No","Sí")
+table(datat$P1_11_G)
+```
+
+Variable P1_11_H: el docente sufrió de cáncer
+```{r}
+str(datat$P1_11_H)
+datat$P1_11_H=as.factor(datat$P1_11_H)
+levels(datat$P1_11_H)=c("No","Sí")
+table(datat$P1_11_H)
+```
+
+Variable P1_11_I: el docente sufrió de diabetes
+```{r}
+str(datat$P1_11_I)
+datat$P1_11_I=as.factor(datat$P1_11_I)
+levels(datat$P1_11_I)=c("No","Sí")
+table(datat$P1_11_I)
+```
+
+Variable P1_11_J: el docente sufrió de hipertensión
+```{r}
+str(datat$P1_11_J)
+datat$P1_11_J=as.factor(datat$P1_11_J)
+levels(datat$P1_11_J)=c("No","Sí")
+table(datat$P1_11_J)
+```
+
+Variable P1_11_K: el docente sufrió de colesterol alto
+```{r}
+str(datat$P1_11_K)
+datat$P1_11_K=as.factor(datat$P1_11_K)
+levels(datat$P1_11_K)=c("No","Sí")
+table(datat$P1_11_K)
+```
+
+Variable P1_11_L: el docente sufrió de covid-19
+```{r}
+str(datat$P1_11_L)
+datat$P1_11_L=as.factor(datat$P1_11_L)
+levels(datat$P1_11_L)=c("No","Sí")
+table(datat$P1_11_L)
+```
+
+Variable P1_11_M: el docente sufrió de alguna otra enfermedad
+```{r}
+str(datat$P1_11_M)
+datat$P1_11_M=as.factor(datat$P1_11_M)
+levels(datat$P1_11_M)=c("No","Sí")
+table(datat$P1_11_M)
+```
+
+Variable P1_13: el docente recibió apoyo psicológico y/o emocional
+```{r}
+str(datat$P1_13)
+datat$P1_13=as.factor(datat$P1_13)
+levels(datat$P1_13)=c("No","Sí")
+table(datat$P1_13)
+```
+
+Crearemos un indice aditivo llamado situaciones
+```{r}
+datat$enfermedades=datat$P1_15_A+datat$P1_15_B+datat$P1_15_C+datat$P1_15_D+datat$P1_15_E+datat$P1_15_F
+summary(datat$situaciones)
+```
+
+Variable P1_15_A: alguno de los miembros del hogar ha sido diagnosticado por covid-19
+```{r}
+str(datat$P1_15_A)
+datat$P1_15_A=as.factor(datat$P1_15_A)
+levels(datat$P1_15_A)=c("No","Sí")
+table(datat$P1_15_A)
+```
+
+Variable P1_15_B: alguno de los miembros del hogar tuvo alguna enfermedad diferente al covid-19
+```{r}
+str(datat$P1_15_B)
+datat$P1_15_B=as.factor(datat$P1_15_B)
+levels(datat$P1_15_B)=c("No","Sí")
+table(datat$P1_15_B)
+```
+
+Variable P1_15_C: alguno de los miembros del hogar perdieron su trabajo o dejaron de trabajar
+```{r}
+str(datat$P1_15_C)
+datat$P1_15_C=as.factor(datat$P1_15_C)
+levels(datat$P1_15_C)=c("No","Sí")
+table(datat$P1_15_C)
+```
+
+Variable P1_15_D: alguno de los miembros del hogar tuvo que postergar o abandonar sus estudios
+```{r}
+str(datat$P1_15_D)
+datat$P1_15_D=as.factor(datat$P1_15_D)
+levels(datat$P1_15_D)=c("No","Sí")
+table(datat$P1_15_D)
+```
+
+Variable P1_15_E: alguno de los miembros del hogar tuvo que mudarse temporal o definitivamente
+```{r}
+str(datat$P1_15_E)
+datat$P1_15_E=as.factor(datat$P1_15_E)
+levels(datat$P1_15_E)=c("No","Sí")
+table(datat$P1_15_E)
+```
+
+Variable P1_15_F: alguno de los miembros del hogar recibió un bono del Estado
+```{r}
+str(datat$P1_15_F)
+datat$P1_15_F=as.factor(datat$P1_15_F)
+levels(datat$P1_15_F)=c("No","Sí")
+table(datat$P1_15_F)
+```
+
+Variable P1_16: el docente tiene alguna ocupación adicional (fuera de la IE) que le permita generar ingresos económicos
+```{r}
+str(datat$P1_16)
+datat$P1_16=as.factor(datat$P1_16)
+levels(datat$P1_16)=c("No","Sí")
+table(datat$P1_16)
+```
+
+Crearemos un indice aditivo llamado programas
+```{r}
+datat$enfermedades=datat$P1_20A_A+datat$P1_20A_B+datat$P1_20A_C+datat$P1_20A_D+datat$P1_20A_E
+summary(datat$programas)
+```
+
+Variable P1_20A_A: el docente participó en algún curso virtual
+```{r}
+str(datat$P1_20A_A)
+datat$P1_20A_A=as.factor(datat$P1_20A_A)
+levels(datat$P1_20A_A)=c("No","Sí")
+table(datat$P1_20A_A)
+```
+
+Variable P1_20A_B: el docente participó en alguna conferencia o seminario virtual
+```{r}
+str(datat$P1_20A_B)
+datat$P1_20A_B=as.factor(datat$P1_20A_B)
+levels(datat$P1_20A_B)=c("No","Sí")
+table(datat$P1_20A_B)
+```
+
+Variable P1_20A_C: el docente participó en alguna capacitación sobre el uso de las TIC
+```{r}
+str(datat$P1_20A_C)
+datat$P1_20A_C=as.factor(datat$P1_20A_C)
+levels(datat$P1_20A_C)=c("No","Sí")
+table(datat$P1_20A_C)
+```
+
+Variable P1_20A_D: el docente participó en algún programa para docentes en el marco de la absorción de matrícula de IE privadas a IE públicas
+```{r}
+str(datat$P1_20A_D)
+datat$P1_20A_D=as.factor(datat$P1_20A_D)
+levels(datat$P1_20A_D)=c("No","Sí")
+table(datat$P1_20A_D)
+```
+
+Variable P1_20A_E: el docente no participó en ningún programa o estrategia formativa
+```{r}
+str(datat$P1_20A_E)
+datat$P1_20A_E=as.factor(datat$P1_20A_E)
+levels(datat$P1_20A_E)=c("No","Sí")
+table(datat$P1_20A_E)
+```
+
+Variable P1_20B_A: qué tan útil para el trabajo fue el curso virtual
+```{r}
+str(datat$P1_20B_A)
+datat$P1_20B_A=as.factor(datat$P1_20B_A)
+levels(datat$P1_20B_A)=c("Nada útil","Poco útil","Muy útil")
+table(datat$P1_20B_A)
+```
+
+Variable P1_20B_B: qué tan útil para el trabajo fue la conferencia o seminario virtual
+```{r}
+str(datat$P1_20B_B)
+datat$P1_20B_B=as.factor(datat$P1_20B_B)
+levels(datat$P1_20B_B)=c("Nada útil","Poco útil","Muy útil")
+table(datat$P1_20B_B)
+```
+
+Variable P1_20B_C: qué tan útil para el trabajo fue la capacitación sobre el uso de las TIC
+```{r}
+str(datat$P1_20B_C)
+datat$P1_20B_C=as.factor(datat$P1_20B_C)
+levels(datat$P1_20B_C)=c("Nada útil","Poco útil","Muy útil")
+table(datat$P1_20B_C)
+```
+
+Variable P1_20B_D: qué tan útil para el trabajo fue el programa para docentes en el marco de la absorción de matrícula de IE privadas a IE públicas
+```{r}
+str(datat$P1_20B_D)
+datat$P1_20B_D=as.factor(datat$P1_20B_D)
+levels(datat$P1_20B_D)=c("Nada útil","Poco útil","Muy útil")
+table(datat$P1_20B_D)
 ```
 
 Crearemos un indice aditivo llamado satisfaccion 
