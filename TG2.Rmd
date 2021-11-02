@@ -3,6 +3,14 @@ title: "Trabajo Gruapal - Entrega 2"
 author: "Azucena Martínez y Fiorella Díaz"
 date: "10/26/2021"
 output: html_document
+rmdformats::robobook:
+code_folding: show
+self_contained: true
+thumbnails: false
+lightbox: true
+pkgdown:
+as_is: true
+---
 ---
 
 ```{r}
