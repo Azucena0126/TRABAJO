@@ -3,14 +3,6 @@ title: "Trabajo Gruapal - Entrega 2"
 author: "Azucena Martínez y Fiorella Díaz"
 date: "10/26/2021"
 output: html_document
-rmdformats::robobook:
-code_folding: show
-self_contained: true
-thumbnails: false
-lightbox: true
-pkgdown:
-as_is: true
----
 ---
 
 ```{r}
@@ -964,10 +956,17 @@ var(datat$dificultad_quehacer, na.rm = T) #varianza
 
 *Posibles pruebas estadisticas a utilizar*
 
+Prueba T de diferencia de medias: una variable numérica y otra categórica (dicotómica)
+- [edad] y [sexo]
 
+Prueba ANOVA: para una variable numérica y otra categórica (+2 grupos)
+- [tiempo dedicado a actividades domésticas/laborales/ocio] y [condición laboral del docente en la IE]
 
+Prueba chi2: para dos variables categóricas (una nominal y otra ordinal)
+- [sexo] y [nivel de satisfacción del docente con su vida/salud/empleo]
+- [sexo] y [nivel de dificultad para realizar el quehacer docente]
 
-
-
-
+Prueba de correlación: para dos variables numéricas
+- [edad] y [tiempo dedicado a actividades domésticas/laborales/ocio]
+- [número de estudiantes a los que se brinda acompañamiento en la IE] y [tiempo dedicado a actividades domésticas/laborales/ocio]
 
