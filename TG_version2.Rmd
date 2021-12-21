@@ -1,0 +1,1671 @@
+---
+title: "Trabajo grupal "
+date: "10/20/2021"
+author: "Azucena Martínez (20185798) Fiorella Diaz(20192035)"
+output: 
+ rmdformats::readthedown:
+ code_folding: show
+ self_contained: true
+ thumbnails: false
+ lightbox: false
+ pkgdown:
+ as_is: true
+---
+Trabajo grupal - Azucena Martínez (20185798) Fiorella Diaz(20192035)
+```{r , message=FALSE, warning=FALSE}
+library(rmdformats)
+```
+
+
+```{r , message=FALSE, warning=FALSE}
+library(rio)
+library(car)
+library(Rmisc)
+library(psych)
+library(gplots)
+library(DescTools)
+```
+
+
+# INTRODUCCIÓN
+
+## *Contexto* 
+El 11 de marzo de 2020, la Organización Mundial de la Salud calificó a la enfermedad derivada del virus SARS-COV-2 como una pandemia a nivel mundial. A raíz de la propagación masiva del COVID-19, se desencadenó una crisis múltiple alrededor de todo el globo que ha afectado principalmente las esferas económica, social, política, sanitaria, y a nivel de la educación. En este contexto, una de las prioridades a nivel internacional durante el último año transcurrido ha sido el desarrollo y adaptación de las clases presenciales al formato virtual en los distintos sectores implicados. 
+
+## *Importancia del tema* 
+Nuestro país no ha sido la excepción de esta situación. De hecho, en el Perú la pandemia se agravó por un conjunto de falencias estructurales en nuestro sistema educativo y resaltó las carencias y diferencias de la educación privada frente a la pública, tanto en el sector urbano como en el rural. Además, las constantes turbulencias políticas, la demora del Estado en la compra y acceso de dispositivos electrónicos, internet y la manera de adaptación de las clases al contexto virtual, el problema de la capacitación a los docentes en las TIC.
+Por todo lo mencionado, consideramos que es importante desarrollar estudios sobre el impacto y el desarrollo de la educación virtual en el 2020 a partir de la perspectiva de los docentes de colegios públicos. En esa línea, nuestra investigación se realizará a nivel educación y se centrará en cómo este nuevo modelo de educación virtual ha impactado en el desarrollo de las actividades laborales y personales de los docentes de colegios públicos.
+
+## *Literatura previa* 
+Actualmente, vivimos en un mundo globalizado en el que la tecnología como la que conocemos se viene incorporando en todos los ámbitos. La educación es uno de los sectores que, a lo largo de los años, ha ido mejorando en el acceso a la información a través de la tecnología y, por consiguiente, se va mejorando los conocimientos. En el Perú, desde el año 1998 se viene implementando las Tecnologías de la Información y Comunicación (TIC) en un inicio como una estrategia populista con el objetivo de llevar a la educación a un nivel superior al que se poseía con el cual se llegaría a las zonas rurales cuya presencia ha sido más complicada (Muñoz et al., 2013).
+Según el diccionario Cambridge, las TIC son una materia de la escuela en la cual los estudiantes aprenden a usar computadoras y otros equipos electrónicos para almacenar y enviar información [1] (traducción propia). Además, la Unesco la define como estrategia que complementa, enriquece y transforma la educación.[2] Por lo que nos referiremos como TIC al aprovechamiento en la interacción con la información, gestión de la comunicación y aprendizaje; todo esto posible gracias al uso de las computadoras y equipos electrónicos (Ministerio de Educación, 2016).
+En un inicio, al implementar las TIC en nuestro país se presentó una serie de problemas; por esta razón, a partir del 2010 con el Diseño del Currículo de Educación Básica se buscó solucionar para su permanencia mediante la capacitación a los docentes en el uso de estas estrategias TIC. Para el Organismo de Estados Internacionales (OEI) esta implementación no puede ser introducida como variables independientes, pues puede generar inseguridad en los adultos de las comunidades escolares, es decir, los docentes. Por eso, es necesario acompañarlo con procesos de apoyo y capacitación para evitar desaprovechar la oportunidad de educación de las TIC (Mateus, 2016).
+Según el Censo escolar del 2011, el 17,4% de las escuelas primarias y el 36,7% de las secundarias del país cuentan con acceso a Internet (Muñoz et al., 2013). Esta es una de las situaciones observadas respecto a la brecha digital, que se basa en el acceso a los medios tecnológicos y de información con relevancia en Internet. Esto se observa en nuestro país con diferencia en las zonas rurales y en las poblaciones que presentan niveles de pobreza, pues el acceso a este servicio es nulo o escaso; así mismo, esta diferencia se complementa con el acceso a la educación (Chumpitaz, 2012). Al existir esta brecha, los estudiantes y docentes son vulnerables a una menor oportunidad frente a los que poseen mayor acceso (Chumpitaz, 2012). En un contexto de pandemia como el que se dió el 2020, esta afirmación se refuerza y por tanto es una realidad que se manifiesta en nuestro país. 
+Cabe resaltar que el tipo de educación que se llevó a cabo en nuestro país en colegios públicos en el contexto de pandemia fue virtual complementado con el programa de “Aprendo en casa” que es una multiplataforma de internet, radio, televisión y celular. Asimismo, es relevante mencionar las definiciones de los conceptos de educación virtual, educación a distancia y educación presencial para un correcto desarrollo del trabajo. 
+Por educación presencial entendemos que los estudiantes acuden a un aula física donde transcurre la enseñanza y el aprendizaje. En esta modalidad los alumnos adquieren un papel más pasivo y se adaptan al ritmo y al método del profesor, que se convierte en la principal fuente de consulta (Iberdrola 2021).
+Por educación a distancia se entiende que es una modalidad en el que los alumnos tienen control sobre el tiempo, espacio y ritmo del aprendizaje, no es necesaria una conexión a internet. Los materiales a utilizar pueden ser físicos, por ejemplo cuadernillos y libros, o multimedia mediante memorias USB o CD y el acompañamiento y la retroalimentación entre el profesor y el alumno se lleva a cabo por teléfono mediante llamadas o mensajes de texto. En algunos sistemas educativos, esta modalidad se apoya en la radio y la televisión para llegar a contextos en los que no es posible una conexión telefónica (Guerrero Hernández, 2020).
+Por educación virtual entendemos a una recurre a Internet y a las tecnologías de la información y la comunicación (TIC) para facilitar a los alumnos herramientas didácticas que dinamicen el curso y lo hagan más intuitivo y fácil de seguir. Este sistema asíncrono permite a los estudiantes asistir a clase, trabajar, comunicarse, examinarse y acceder a los contenidos desde cualquier lugar. Es necesario resaltar que la definición en la que se basa el trabajo es de una educación virtual por el contexto de pandemia y cuarentena a la que se pasó gran parte del 2020 y por ende, afectó en la labor docente de las escuelas públicas que es nuestro caso de importancia (Iberdrola 2021).
+Y por educación online se entiende como todas las ventajas de la modalidad virtual pero con una característica extra: es sincrónica, es decir el profesor y los alumnos coinciden en el horario (Guerrero Hernández, 2020).
+
+
+[1] “information and communication technology (ICT): a school subject in which students learn to use computers and other electronic equipment to store and send information” Ver: https://dictionary.cambridge.org/es/diccionario/ingles/ict
+[2] “Las TIC en la Educación” Organización de las Naciones Unidas para la Educación, la Ciencia y la Cultura (UNESCO)  Ver: https://es.unesco.org/themes/tic-educacion
+
+BIBLIOGRAFÍA
+Chumpitaz, L. (2012). La formación de docentes de Educación básica en el uso educativo de las TIC y la reducción de la brecha digital. Educación, 16(31), 29–42.
+ENDO (2020). ENDO REMOTO 2020. Recuperado de ENDO
+http://escale.minedu.gob.pe/uee/-/document_library_display/GMv7/view/6981285 
+
+Guerrero Hernández, Jorge Alberto (09 de agosto de 2020). Educación a distancia, virtual y en línea: ¿Cuál es la diferencia?. Docentes al día. https://docentesaldia.com/2020/08/09/educacion-a-distancia-virtual-y-en-linea-cual-es-la-diferencia/ 
+Iberdrola (2021). Formación a distancia o formación presencial, ¿cuál elegir?.  Iberdrola https://www.iberdrola.com/talento/educacion-presencial-vs-virtual 
+Ministerio de Educación. 
+(2016). Currículo Nacional de la Educación Básica. Currículo Nacional de la Educación Básica, 224. Recuperado a partir de http://www.minedu.gob.pe/curriculo/pdf/curriculo-nacional-de-la-educacion-basica.pdf
+(2020). FICHA TÉCNICA – ENCUESTA NACIONAL A DOCENTES DE INSTITUCIONES EDUCATIVAS PÚBLICAS – ENDO REMOTO 2020. ESCALE. Recuperado a partir de http://escale.minedu.gob.pe/documents/10156/6b6b3f60-7dfd-4e39-be11-d59f9eb43591 
+Mateus, J. (2016). Abrumados y fascinados: Las TIC en la subjetividad de los docentes peruanos. Revista de Estudios para el Desarrollo Social de la Comunicación, 170–193. Recuperado a partir de https://doi.org/10.15213/redes.n12.p171
+Muñoz, L., Brenes, M., Bujanda, M. E., Mora, M., Núñez, O., Zúñiga, M., & UNICEF. (2013). Programa TIC y Educación Básica. Las políticas TIC en los sistemas educativos de América Latina: Caso Perú. Fondo de las Naciones Unidas para la Infancia (UNICEF), (January 2013), 162. Recuperado a partir de https://www.researchgate.net/publication/326286988_Las_Politicas_TIC_en_America_Latina_-_el_caso_peruano_Programa_TIC_y_Educacion_Basica_UNICEF 
+
+
+# ANÁLISIS DE DATOS
+
+## *Presentación de la base de datos* 
+La base de datos a utilizar ha sido posible gracias a la base de datos abierta del MINEDU en la página ESCALE la cual se puede encontrar la información de la encuesta ENDO de los años 2014, 2016,2018 y 2020. Esta base de datos comprende a los servicios educativos de EBR, de gestión pública, escolarizados, activos al 2 de noviembre de 2020, excluyendo servicios educativos COAR y PRONOEI, para los cuales se cuente con información del documento de identidad de los docentes registrados en NEXUS, y con número de celular de acuerdo con el directorio telefónico consolidado por la USE. El marco muestral está compuesto por un total de 63,107 servicios educativos que cumplen con las condiciones señaladas, de un universo de 64,172 servicios educativos. En cuanto a docentes, el marco muestral considera a personas en plazas con cargo docente, activas, encargadas o designadas, y con situación laboral nombrado o contratado. 
+
+Importamos la base de datos ENDO (Encuesta Nacional a Docentes) Remota 2020
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+data=import("https://github.com/Azucena0126/TRABAJO/raw/458806321e5255822fec37d4b4b182e06de3cacf/BD.ENDO%20REMOTO%202020.sav")
+```
+
+## *Estructura de la base de datos* 
+La base de datos presentada a continuación se da a partir de la seleccion de variables que consideramos relevantes para el correcto desarrollo de nuestro trabajo
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+datat=subset(data, select=c(P1_1,P1_2,P1_3,P1_4,P1_5,P1_6,P1_7,P1_9_A_LV_HORA,P1_9_A_LV_MIN,P1_9_A_SD_HORA,P1_9_A_SD_MIN,P1_9_B_LV_HORA,P1_9_B_LV_MIN,P1_9_B_SD_HORA,P1_9_B_SD_MIN,P1_9_C_LV_HORA,P1_9_C_LV_MIN,P1_9_C_SD_HORA,P1_9_C_SD_MIN,P1_9_D_LV_HORA,P1_9_D_LV_MIN,P1_9_D_SD_HORA,P1_9_D_SD_MIN,P1_9_E_LV_HORA,P1_9_E_LV_MIN,P1_9_E_SD_HORA,P1_9_E_SD_MIN,P1_11_A,P1_11_B,P1_11_C,P1_11_D,P1_11_E,P1_11_F,P1_11_G,P1_11_H,P1_11_I,P1_11_J,P1_11_K,P1_11_L,P1_11_M,P1_13,P1_15_A,P1_15_B,P1_15_C,P1_15_D,P1_15_E,P1_15_F,P1_16,P1_20A_A,P1_20A_B,P1_20A_C,P1_20A_D,P1_20A_E,P1_20B_A,P1_20B_B,P1_20B_C,P1_20B_D,P1_24_A,P1_24_B,P1_24_C,P1_24_D,P1_24_E,P1_24_F,P1_26_A,P1_26_B,P1_26_C,P1_26_D,P1_26_E,P1_27_A,P1_27_B,P1_27_C,P1_27_D,P1_27_E))
+```
+ 
+A partir de esta seleccion, configuraremos los datos a partir de nuestra conveniencia
+
+#### Variable P1_1: sexo 
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+datat$sexo=datat$P1_1
+str(datat$sexo)
+datat$sexo=as.factor(datat$sexo)
+levels(datat$sexo)=c("Masculino","Femenino")
+table(datat$sexo)
+```
+
+#### Variable P1_2: edad
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+datat$edad=datat$P1_2
+str(datat$edad)
+table(datat$edad)
+```
+
+#### Variable P1_3: n° de personas en el hogar
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_3)
+table(datat$P1_3)
+```
+
+##### Variable P1_4: vive con personas de la tercera edad
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_4)
+datat$P1_4=as.factor(datat$P1_4)
+table(datat$P1_4)
+```
+```{r , message=FALSE, warning=FALSE}
+library(car)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+datat$tercera_edad = datat$P1_4
+datat$tercera_edad = recode(datat$tercera_edad, "1 = 1; 2=0")
+levels(datat$tercera_edad)=c("no","si")
+table(datat$tercera_edad)
+```
+
+#### Variable P1_5: vive con personas en el grupo de riesgo ante covid-19
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_5)
+datat$P1_5=as.factor(datat$P1_5)
+datat$P1_5 = recode(datat$P1_5, "1 = 1; 2=0")
+levels(datat$P1_5)=c("No","Sí")
+table(datat$P1_5)
+```
+
+#### Variable P1_6: a cuántos estudiantes les brinda acompañamiento como docente
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_6)
+table(datat$P1_6)
+```
+
+#### Variable P1_7: condición laboral actual en la IE
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_7)
+datat$P1_7=as.factor(datat$P1_7)
+levels(datat$P1_7)=c("nombrado","cont.c.púb","cont.otro")
+table(datat$P1_7)
+```
+
+Para las variables P1_9_A_LV_HORA hasta P1_9_E_SD_MIN las recodificaremos a nuestra conveniencia en horas y por categorias
+
+#### Variable P1_9_A_LV_MIN: tiempo (en minutos) dedicado a preparar clases y labores administrativas (lunes a viernes)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_9_A_LV_MIN)
+datat$P1_9_A_LV_MIN=data$P1_9_A_LV_MIN/60
+table(datat$P1_9_A_LV_MIN)
+```
+
+#### Variable P1_9_A_SD_MIN: tiempo (en minutos) dedicado a preparar clases y labores administrativas (sábados y domingos)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_9_A_SD_MIN)
+datat$P1_9_A_SD_MIN=datat$P1_9_A_SD_MIN/60
+table(datat$P1_9_A_SD_MIN)
+```
+
+#### Variable P1_9_B_LV_MIN: tiempo (en minutos) dedicado a retroalimentar , evaluar a las y los estudiantes y atender a los padres de familia (lunes a viernes)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_9_B_LV_MIN)
+datat$P1_9_B_LV_MIN=datat$P1_9_B_LV_MIN/60
+table(datat$P1_9_B_LV_MIN)
+```
+
+#### Variable P1_9_B_SD_MIN: tiempo (en minutos) dedicado a retroalimentar , evaluar a las y los estudiantes y atender a los padres de familia (sábados y domingos)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_9_B_SD_MIN)
+datat$P1_9_B_SD_MIN=datat$P1_9_B_SD_MIN/60
+table(datat$P1_9_B_SD_MIN)
+```
+
+#### Variable P1_9_C_LV_MIN: tiempo (en minutos) dedicado a trabajar de forma colegiada con los colegas de la IE (lunes a viernes)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_9_C_LV_MIN)
+datat$P1_9_C_LV_MIN=datat$P1_9_C_LV_MIN/60
+table(datat$P1_9_C_LV_MIN)
+```
+
+#### Variable P1_9_C_SD_MIN: tiempo (en minutos) dedicado a trabajar de forma colegiada con los colegas de la IE (sábados y domingos)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_9_C_SD_MIN)
+datat$P1_9_C_SD_MIN=datat$P1_9_C_SD_MIN/60
+table(datat$P1_9_C_SD_MIN)
+```
+
+#### Variable P1_9_D_LV_MIN: tiempo (en minutos) dedicado a tareas domésticas y cuidado de los hijos y/o de padres (lunes a viernes)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_9_D_LV_MIN)
+datat$P1_9_D_LV_MIN=datat$P1_9_D_LV_MIN/60
+table(datat$P1_9_D_LV_MIN)
+```
+
+#### Variable P1_9_D_SD_MIN: tiempo (en minutos) dedicado a tareas domésticas y cuidado de los hijos y/o de padres (sábados y domingos)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_9_D_SD_MIN)
+datat$P1_9_D_SD_MIN=datat$P1_9_D_SD_MIN/60
+table(datat$P1_9_D_SD_MIN)
+```
+
+#### Variable P1_9_E_LV_MIN: tiempo (en minutos) dedicado a en entretenimiento y deporte (lunes a viernes)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_9_E_LV_MIN)
+datat$P1_9_E_LV_MIN=datat$P1_9_E_LV_MIN/60
+table(datat$P1_9_E_LV_MIN)
+```
+
+#### Variable P1_9_E_SD_MIN: tiempo (en minutos) dedicado a entretenimiento y deporte (sábados y domingos)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_9_E_SD_MIN)
+datat$P1_9_E_SD_MIN=datat$P1_9_E_SD_MIN/60
+table(datat$P1_9_E_SD_MIN)
+```
+
+#### Variable indice aditivo tiempo (en horas) en actividades laborales (de lunes a viernes)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+datat$act_laborales_LV = datat$P1_9_A_LV_HORA + datat$P1_9_A_LV_MIN + datat$P1_9_B_LV_HORA + datat$P1_9_B_LV_MIN + datat$P1_9_C_LV_HORA + datat$P1_9_C_LV_MIN
+summary(datat$act_laborales_LV)
+```
+
+#### Variable indice aditivo tiempo (en horas) dedicado a actividades laborales (sabados y domingos)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+datat$act_laborales_SD = datat$P1_9_A_SD_HORA + datat$P1_9_A_SD_MIN + datat$P1_9_B_SD_HORA + datat$P1_9_B_SD_MIN + datat$P1_9_C_SD_HORA + datat$P1_9_C_SD_MIN
+summary(datat$act_laborales_SD)
+```
+
+#### Variable indice aditivo tiempo (en horas) dedicado a tareas domesticas (lunes a viernes)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+datat$act_domesticas_LV = datat$P1_9_D_LV_HORA + datat$P1_9_D_LV_MIN
+summary(datat$act_domesticas_LV)
+```
+
+#### Variable indice aditivo tiempo (en horas) dedicado a tareas domesticas (sábados y domingos)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+datat$act_domesticas_SD = datat$P1_9_D_SD_HORA + datat$P1_9_D_SD_MIN
+summary(datat$act_domesticas_SD)
+```
+
+#### Variable indice aditivo tiempo (en horas) dedicado a en entretenimiento y deporte (lunes a viernes)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+datat$act_ocio_LV = datat$P1_9_E_LV_HORA + datat$P1_9_E_LV_MIN
+summary(datat$act_ocio_LV)
+```
+
+#### Variable indice aditivo tiempo (en horas) dedicado a en entretenimiento y deporte (sábados y domingos)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+datat$act_ocio_SD = datat$P1_9_E_SD_HORA + datat$P1_9_E_SD_MIN
+summary(datat$act_ocio_SD)
+```
+
+#### Crearemos un indice aditivo llamado enfermedades
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+datat$enfermedades=datat$P1_11_A+datat$P1_11_B+datat$P1_11_C+datat$P1_11_D+datat$P1_11_E+datat$P1_11_F+datat$P1_11_G+datat$P1_11_H+datat$P1_11_I+datat$P1_11_J+datat$P1_11_K+datat$P1_11_L+datat$P1_11_M
+summary(datat$enfermedades)
+```
+
+#### Variable P1_11_A: el docente sufrió de problemas de garganta o voz
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_11_A)
+datat$P1_11_A=as.factor(datat$P1_11_A)
+levels(datat$P1_11_A)=c("No","Sí")
+table(datat$P1_11_A)
+```
+
+#### Variable P1_11_B: el docente sufrió de enfermedades respiratorias
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_11_B)
+datat$P1_11_B=as.factor(datat$P1_11_B)
+levels(datat$P1_11_B)=c("No","Sí")
+table(datat$P1_11_B)
+```
+
+#### Variable P1_11_C: el docente sufrió de  tuberculosis
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_11_C)
+datat$P1_11_C=as.factor(datat$P1_11_C)
+levels(datat$P1_11_C)=c("No","Sí")
+table(datat$P1_11_C)
+```
+
+#### Variable P1_11_D: el docente sufrió de sobrepeso/obesidad
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_11_D)
+datat$P1_11_D=as.factor(datat$P1_11_D)
+levels(datat$P1_11_D)=c("No","Sí")
+table(datat$P1_11_D)
+```
+
+#### Variable P1_11_E: el docente sufrió de estrés
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_11_E)
+datat$P1_11_E=as.factor(datat$P1_11_E)
+levels(datat$P1_11_E)=c("No","Sí")
+table(datat$P1_11_E)
+```
+
+#### Variable P1_11_F: el docente sufrió de ansiedad
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_11_F)
+datat$P1_11_F=as.factor(datat$P1_11_F)
+levels(datat$P1_11_F)=c("No","Sí")
+table(datat$P1_11_F)
+```
+
+####Variable P1_11_G: el docente sufrió de depresión
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_11_G)
+datat$P1_11_G=as.factor(datat$P1_11_G)
+levels(datat$P1_11_G)=c("No","Sí")
+table(datat$P1_11_G)
+```
+
+#### Variable P1_11_H: el docente sufrió de cáncer
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_11_H)
+datat$P1_11_H=as.factor(datat$P1_11_H)
+levels(datat$P1_11_H)=c("No","Sí")
+table(datat$P1_11_H)
+```
+
+#### Variable P1_11_I: el docente sufrió de diabetes
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_11_I)
+datat$P1_11_I=as.factor(datat$P1_11_I)
+levels(datat$P1_11_I)=c("No","Sí")
+table(datat$P1_11_I)
+```
+
+#### Variable P1_11_J: el docente sufrió de hipertensión
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_11_J)
+datat$P1_11_J=as.factor(datat$P1_11_J)
+levels(datat$P1_11_J)=c("No","Sí")
+table(datat$P1_11_J)
+```
+
+#### Variable P1_11_K: el docente sufrió de colesterol alto
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_11_K)
+datat$P1_11_K=as.factor(datat$P1_11_K)
+levels(datat$P1_11_K)=c("No","Sí")
+table(datat$P1_11_K)
+```
+
+#### Variable P1_11_L: el docente sufrió de covid-19
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_11_L)
+datat$P1_11_L=as.factor(datat$P1_11_L)
+levels(datat$P1_11_L)=c("No","Sí")
+table(datat$P1_11_L)
+```
+
+#### Variable P1_11_M: el docente sufrió de alguna otra enfermedad
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_11_M)
+datat$P1_11_M=as.factor(datat$P1_11_M)
+levels(datat$P1_11_M)=c("No","Sí")
+table(datat$P1_11_M)
+```
+
+#### Variable P1_13: el docente recibió apoyo psicológico y/o emocional
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_13)
+datat$P1_13=as.factor(datat$P1_13)
+levels(datat$P1_13)=c("No","Sí")
+table(datat$P1_13)
+```
+
+#### Crearemos un indice aditivo llamado situaciones
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+datat$situaciones=datat$P1_15_A+datat$P1_15_B+datat$P1_15_C+datat$P1_15_D+datat$P1_15_E+datat$P1_15_F
+summary(datat$situaciones)
+```
+
+#### Variable P1_15_A: alguno de los miembros del hogar ha sido diagnosticado por covid-19
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_15_A)
+datat$P1_15_A=as.factor(datat$P1_15_A)
+levels(datat$P1_15_A)=c("No","Sí")
+table(datat$P1_15_A)
+```
+
+#### Variable P1_15_B: alguno de los miembros del hogar tuvo alguna enfermedad diferente al covid-19
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_15_B)
+datat$P1_15_B=as.factor(datat$P1_15_B)
+levels(datat$P1_15_B)=c("No","Sí")
+table(datat$P1_15_B)
+```
+
+#### Variable P1_15_C: alguno de los miembros del hogar perdieron su trabajo o dejaron de trabajar
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_15_C)
+datat$P1_15_C=as.factor(datat$P1_15_C)
+levels(datat$P1_15_C)=c("No","Sí")
+table(datat$P1_15_C)
+```
+
+#### Variable P1_15_D: alguno de los miembros del hogar tuvo que postergar o abandonar sus estudios
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat$P1_15_D)
+datat$P1_15_D=as.factor(datat$P1_15_D)
+levels(datat$P1_15_D)=c("No","Sí")
+table(datat$P1_15_D)
+```
+
+#### Variable P1_15_E: alguno de los miembros del hogar tuvo que mudarse temporal o definitivamente
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_15_E)
+datat$P1_15_E=as.factor(datat$P1_15_E)
+levels(datat$P1_15_E)=c("No","Sí")
+table(datat$P1_15_E)
+```
+
+#### Variable P1_15_F: alguno de los miembros del hogar recibió un bono del Estado
+```{r, warning=FALSE, message=FALSE}
+str(datat$P1_15_F)
+datat$P1_15_F=as.factor(datat$P1_15_F)
+levels(datat$P1_15_F)=c("No","Sí")
+table(datat$P1_15_F)
+```
+
+#### Variable P1_16: el docente tiene alguna ocupación adicional (fuera de la IE) que le permita generar ingresos económicos
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_16)
+datat$P1_16=as.factor(datat$P1_16)
+levels(datat$P1_16)=c("No","Sí")
+table(datat$P1_16)
+```
+
+Crearemos un indice aditivo llamado programas
+```{r , message=FALSE, warning=FALSE}
+datat$programas=datat$P1_20A_A+datat$P1_20A_B+datat$P1_20A_C+datat$P1_20A_D+datat$P1_20A_E
+summary(datat$programas)
+```
+
+#### Variable P1_20A_A: el docente participó en algún curso virtual
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_20A_A)
+datat$P1_20A_A=as.factor(datat$P1_20A_A)
+levels(datat$P1_20A_A)=c("No","Sí")
+table(datat$P1_20A_A)
+```
+
+#### Variable P1_20A_B: el docente participó en alguna conferencia o seminario virtual
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_20A_B)
+datat$P1_20A_B=as.factor(datat$P1_20A_B)
+levels(datat$P1_20A_B)=c("No","Sí")
+table(datat$P1_20A_B)
+```
+
+#### Variable P1_20A_C: el docente participó en alguna capacitación sobre el uso de las TIC
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_20A_C)
+datat$P1_20A_C=as.factor(datat$P1_20A_C)
+levels(datat$P1_20A_C)=c("No","Sí")
+table(datat$P1_20A_C)
+```
+
+#### Variable P1_20A_D: el docente participó en algún programa para docentes en el marco de la absorción de matrícula de IE privadas a IE públicas
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_20A_D)
+datat$P1_20A_D=as.factor(datat$P1_20A_D)
+levels(datat$P1_20A_D)=c("No","Sí")
+table(datat$P1_20A_D)
+```
+
+#### Variable P1_20A_E: el docente no participó en ningún programa o estrategia formativa
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_20A_E)
+datat$P1_20A_E=as.factor(datat$P1_20A_E)
+levels(datat$P1_20A_E)=c("No","Sí")
+table(datat$P1_20A_E)
+```
+
+#### Variable P1_20B_A: qué tan útil para el trabajo fue el curso virtual
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_20B_A)
+datat$P1_20B_A=as.ordered(datat$P1_20B_A)
+levels(datat$P1_20B_A)=c("Nada útil","Poco útil","Muy útil")
+table(datat$P1_20B_A)
+```
+
+#### Variable P1_20B_B: qué tan útil para el trabajo fue la conferencia o seminario virtual
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_20B_B)
+datat$P1_20B_B=as.factor(datat$P1_20B_B)
+levels(datat$P1_20B_B)=c("Nada útil","Poco útil","Muy útil")
+table(datat$P1_20B_B)
+```
+
+#### Variable P1_20B_C: qué tan útil para el trabajo fue la capacitación sobre el uso de las TIC
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_20B_C)
+datat$P1_20B_C=as.factor(datat$P1_20B_C)
+levels(datat$P1_20B_C)=c("Nada útil","Poco útil","Muy útil")
+table(datat$P1_20B_C)
+```
+
+#### Variable P1_20B_D: qué tan útil para el trabajo fue el programa para docentes en el marco de la absorción de matrícula de IE privadas a IE públicas
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_20B_D)
+datat$P1_20B_D=as.factor(datat$P1_20B_D)
+levels(datat$P1_20B_D)=c("Nada útil","Poco útil","Muy útil")
+table(datat$P1_20B_D)
+```
+
+Crearemos un indice aditivo llamado satisfaccion 
+
+```{r , message=FALSE, warning=FALSE}
+datat$satisfaccion=datat$P1_24_A+datat$P1_24_B+datat$P1_24_C+datat$P1_24_D+datat$P1_24_E+datat$P1_24_F
+summary(datat$satisfaccion)
+```
+
+
+```{r , message=FALSE, warning=FALSE}
+datat$satisfaccion=(((datat$satisfaccion)-6)/18)*10
+summary(datat$satisfaccion)
+```
+
+Luego recodificaremos las variables que consideramos necesario para proceder con nuestro objetivo 
+#### P1_24_A: ¿Cuán satisfecho está usted con su vida?
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_24_A)
+datat$P1_24_A=as.factor(datat$P1_24_A)
+levels(datat$P1_24_A)=c("Nada satisfecho","Poco satisfechO","Satisfecho","Muy satisfecho")
+table(datat$P1_24_A)
+```
+
+#### P1_24_B: ¿Cuán satisfecho está usted con su salud?
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_24_B)
+datat$P1_24_B=as.factor(datat$P1_24_B)
+levels(datat$P1_24_B)=c("Nada satisfecho","Poco satisfechO","Satisfecho","Muy satisfecho")
+table(datat$P1_24_B)
+```
+
+#### P1_24_C: ¿Cuán satisfecho está usted con las condiciones de vida que le puede dar a sus hijos/familia?
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_24_C)
+datat$P1_24_C=as.factor(datat$P1_24_C)
+levels(datat$P1_24_C)=c("Nada satisfecho","Poco satisfechO","Satisfecho","Muy satisfecho")
+table(datat$P1_24_C)
+```
+
+P1_24_D:¿Cuán satisfecho está usted con las condiciones de su jubilación futura?
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_24_D)
+datat$P1_24_D=as.factor(datat$P1_24_D)
+levels(datat$P1_24_D)=c("Nada satisfecho","Poco satisfechO","Satisfecho","Muy satisfecho")
+table(datat$P1_24_D)
+```
+
+#### P1_24_E: ¿Cuán satisfecho está usted con su empleo en esta IE?
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_24_E)
+datat$P1_24_E=as.factor(datat$P1_24_E)
+levels(datat$P1_24_E)=c("Nada satisfecho","Poco satisfechO","Satisfecho","Muy satisfecho")
+table(datat$P1_24_E)
+```
+
+#### P1_24_F:¿Cuán satisfecho está usted con las condiciones para realizar su labor como docente?
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_24_F)
+datat$P1_24_F=as.factor(datat$P1_24_F)
+levels(datat$P1_24_F)=c("Nada satisfecho","Poco satisfechO","Satisfecho","Muy satisfecho")
+table(datat$P1_24_F)
+```
+
+Crearemos un indice aditivo llamado dificultad_actividades
+```{r , message=FALSE, warning=FALSE}
+datat$dificultad_actividades=datat$P1_26_A+datat$P1_26_B+datat$P1_26_C+datat$P1_26_D+datat$P1_26_E
+summary(datat$dificultad_actividades)
+```
+
+```{r , message=FALSE, warning=FALSE}
+datat$dificultad_actividades=(((datat$dificultad_actividades)-5)/15)*10
+summary(datat$dificultad_actividades)
+```
+
+Luego recodificaremos las variables que consideramos necesario para proceder con nuestro objetivo 
+
+#### P1_26_A: qué tan fácil o difícil es llevar a cabo la planificación de la enseñanza de forma individual y colegiada
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_26_A)
+datat$P1_26_A=as.factor(datat$P1_26_A)
+table(datat$P1_26_A)
+```
+```{r , message=FALSE, warning=FALSE}
+datat$P1_26_A = recode(datat$P1_26_A, "1 = 4; 2=3;3=2;4=1")
+levels(datat$P1_26_A)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
+table(datat$P1_26_A)
+```
+
+#### P1_26_B:qué tan fácil o difícil es llevar a cabo sistematizar su práctica pedagógica
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_26_B)
+datat$P1_26_B=as.factor(datat$P1_26_B)
+table(datat$P1_26_B)
+```
+```{r , message=FALSE, warning=FALSE}
+datat$P1_26_B = recode(datat$P1_26_B, "1 = 4; 2=3;3=2;4=1")
+levels(datat$P1_26_B)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
+table(datat$P1_26_B)
+```
+
+#### P1_26_C:qué tan fácil o difícil es llevar a cabo la reflexión sobre los resultados de su práctica pedagógica?
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_26_C)
+datat$P1_26_C=as.factor(datat$P1_26_C)
+table(datat$P1_26_C)
+```
+```{r , message=FALSE, warning=FALSE}
+datat$P1_26_C = recode(datat$P1_26_C, "1 = 4; 2=3;3=2;4=1")
+levels(datat$P1_26_C)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
+table(datat$P1_26_C)
+```
+
+#### P1_26_D: qué tan fácil o difícil es llevar a cabo la participación en la gestión de la IE
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_26_D)
+datat$P1_26_D=as.factor(datat$P1_26_D)
+table(datat$P1_26_D)
+```
+```{r , message=FALSE, warning=FALSE}
+datat$P1_26_D = recode(datat$P1_26_D, "1 = 4; 2=3;3=2;4=1")
+levels(datat$P1_26_D)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
+table(datat$P1_26_D)
+```
+
+#### P1_26_E:qué tan fácil o difícil es llevar a cabo la  participación en procesos de aprendizaje
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_26_E)
+datat$P1_26_E=as.factor(datat$P1_26_E)
+table(datat$P1_26_E)
+```
+```{r , message=FALSE, warning=FALSE}
+datat$P1_26_E = recode(datat$P1_26_E, "1 = 4; 2=3;3=2;4=1")
+levels(datat$P1_26_E)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
+table(datat$P1_26_E)
+```
+
+Creamos el indice aditivo dificultad_quehacer
+```{r , message=FALSE, warning=FALSE}
+datat$dificultad_quehacer=datat$P1_27_A+datat$P1_27_B+datat$P1_27_C+datat$P1_27_D+datat$P1_27_E
+summary(datat$dificultad_quehacer)
+```
+```{r , message=FALSE, warning=FALSE}
+datat$dificultad_quehacer=(((datat$dificultad_quehacer)-5)/15)*10
+summary(datat$dificultad_quehacer)
+```
+
+Luego recodificaremos las variables que consideramos necesario para proceder con nuestro objetivo 
+#### P1_27_A:qué tan fácil o difícil es comunicarse y retroalimentar y motivar a las y los estudiantes
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_27_A)
+datat$P1_27_A=as.factor(datat$P1_27_A)
+table(datat$P1_27_A)
+```
+```{r , message=FALSE, warning=FALSE}
+datat$P1_27_A = recode(datat$P1_27_A, "1 = 4; 2=3;3=2;4=1")
+levels(datat$P1_27_A)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
+table(datat$P1_27_A)
+```
+
+#### P1_27_B:qué tan fácil o difícil es atender los problemas socioemocionales de las y los estudiantes
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_27_B)
+datat$P1_27_B=as.factor(datat$P1_27_B)
+table(datat$P1_27_B)
+```
+```{r , message=FALSE, warning=FALSE}
+datat$P1_27_B = recode(datat$P1_27_B, "1 = 4; 2=3;3=2;4=1")
+levels(datat$P1_27_B)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
+table(datat$P1_27_B)
+```
+
+#### P1_27_C: qué tan fácil o difícil es virtualizar la enseñanza, adaptando y/o complementando las sesiones de “Aprendo en casa”, según necesidades de las y los estudiantes
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_27_C)
+datat$P1_27_C=as.factor(datat$P1_27_C)
+table(datat$P1_27_C)
+```
+```{r , message=FALSE, warning=FALSE}
+datat$P1_27_C = recode(datat$P1_27_C, "1 = 4; 2=3;3=2;4=1")
+levels(datat$P1_27_C)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
+table(datat$P1_27_C)
+```
+
+#### P1_27_D: qué tan fácil o difícil es coordinar y responder a la demanda de los padres y madres de familia
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_27_D)
+datat$P1_27_D=as.factor(datat$P1_27_D)
+table(datat$P1_27_D)
+```
+```{r , message=FALSE, warning=FALSE}
+datat$P1_27_D = recode(datat$P1_27_D, "1 = 4; 2=3;3=2;4=1")
+levels(datat$P1_27_D)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
+table(datat$P1_27_D)
+```
+
+#### P1_27_E:qué tan fácil o difícil es planificar actividades bajo el enfoque por competencias del Currículo Nacional de la Educación Básica
+```{r , message=FALSE, warning=FALSE}
+str(datat$P1_27_E)
+datat$P1_27_E=as.factor(datat$P1_27_E)
+table(datat$P1_27_E)
+```
+```{r , message=FALSE, warning=FALSE}
+datat$P1_27_E = recode(datat$P1_27_E, "1 = 4; 2=3;3=2;4=1")
+levels(datat$P1_27_E)=c( "Muy fácil","Fácil"," Dificil","Muy difícil")
+table(datat$P1_27_E)
+```
+
+Despues de haber hecho la seleccion de datos a utilizar procedemos con los siguientes analisis
+
+## *Pregunta de investigación* 
+¿Cuáles son los factores que más han afectado el desarrollo de las actividades laborales de los docentes de Educación Básica Regular (EBR) en el contexto de pandemia por la COVID-19?
+
+## *Objetivo general* 
+Identificar las principales variables que más influyen en el desarrollo de las actividades laborales de los docentes de Educación Básica Regular (EBR).
+
+## *Objetivos específicos* 
+Identificar los factores que determinan la sobrecarga laboral a partir de la virtualización surgida en el contexto de pandemia.
+Identificar las condiciones del entorno doméstico del docente que dificultan el correcto desarrollo de sus labores. 
+
+## *Hipótesis* 
+Se plantea como hipótesis que los factores que más han afectado el desarrollo de las actividades laborales de los docentes son la edad, el sexo, el número de estudiantes a los que brinda acompañamiento, el padecimiento de enfermedades, la participación de programas o estrategias formativas, y la percepción de dificultad del quehacer docente en el contexto de educación virtual.
+Esto lo subdiviremos en 4 hipotesis que se buscan resolver.
+
+*Hipótesis I*: Los factores que más han afectado el desarrollo de las actividades laborales y personales de los docentes son la edad, el sexo, 
+*Hipótesis II*: Los factores que más han afectado el desarrollo de las actividades laborales y personales de los docentes el número de estudiantes a los que brinda acompañamiento, 
+*Hipótesis III*: los factores que más han afectado el desarrollo de las actividades laborales y personales de los docentes son el padecimiento de enfermedades,
+*Hipótesis IV*: los factores que más han afectado el desarrollo de las actividades laborales y personales de los docentes ha sido la participación de programas o estrategias formativas
+*Hipótesis V*: los factores que más han afectado el desarrollo de las actividades laborales y personales de los docentes son la percepción de dificultad del quehacer docente en el contexto de educación virtual.
+## *Unidad de estudio*: Docentes de Educación Básica Regular (EBR)
+
+
+# PARTE 1: Medidas de dispersion y centralidad de las variables numericas
+
+*Hallando las medidas de dispersion y centralidad de las variables numericas a utilizar en nuestro trabajo*
+
+PROCEDEREMOS A HALLAR LAS MEDIDAS DE DISPERSION Y CENTRALIDAD DE LAS VARIABLES NUMERICAS EN NUESTRO CASO A UTILIZAR.
+
+
+## Variable edad
+```{r , message=FALSE, warning=FALSE}
+describeBy(datat$P1_6)
+```
+
+```{r , message=FALSE, warning=FALSE}
+Mode(datat$P1_6,na.rm = T)
+range(datat$P1_6, na.rm = T)
+quantile(datat$P1_6, na.rm=T)
+IQR(datat$P1_6, na.rm = T)
+var(datat$P1_6, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene como edad promedio de 39.99 años de los datos obtenidos. Asímismo, la edad con más frecuencia (676 veces) es 25; además, la posicion central de la edad se da en 23* 
+*El rango que presenta la variable es de 379 y el rango intercuartil es 22 El promedio de las puntuaciones de esta distribucion es de 2577.296, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de 50.77*
+*Los datos agrupados alrededor de la moda es 11.02, por lo tanto es una concentracion de forma lepocurtica*
+*Por otro lado, el grado de sesgo es de 3.04, lo que significa que nuestra variable representada tiene una asimetria a la derecha* 
+
+
+## Variable tiempo en actividades laborales de lunes a viernes en horas
+```{r , message=FALSE, warning=FALSE}
+describeBy(datat$act_laborales_LV)
+```
+
+```{r , message=FALSE, warning=FALSE}
+Mode(datat$act_laborales_LV,na.rm = T)
+range(datat$act_laborales_LV, na.rm = T)
+quantile(datat$act_laborales_LV, na.rm=T)
+IQR(datat$act_laborales_LV, na.rm = T)
+var(datat$act_laborales_LV, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene como tiempo en actividades laborales de lunes a viernes en horas promedio de 8.96 horas de los datos obtenidos. Asímismo, el tiempo empleado con más frecuencia (2881 veces) es 8; además, la posicion central de la horas empleadas se da en 8* 
+*El rango que presenta la variable es de 70 y el rango intercuartil es 3. El promedio de las puntuaciones de esta distribucion es de 16.47697, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de 4.06*
+*Los datos agrupados alrededor de la moda es de 37.81, por lo tanto es una concentracion de forma lepocurtica*
+*Por otro lado, el grado de sesgo es de 4.28, lo que significa que nuestra variable representada tiene una asimetria a la derecha* 
+
+
+## Variable tiempo en actividades laborales  sábados y domingo en horas
+```{r , message=FALSE, warning=FALSE}
+describeBy(datat$act_laborales_SD)
+```
+
+```{r , message=FALSE, warning=FALSE}
+Mode(datat$act_laborales_SD,na.rm = T)
+range(datat$act_laborales_SD, na.rm = T)
+quantile(datat$act_laborales_SD, na.rm=T)
+IQR(datat$act_laborales_SD, na.rm = T)
+var(datat$act_laborales_SD, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene como tiempo en actividades laborales de sábados y domingo en horas promedio de 5.46 horas de los datos obtenidos. Asímismo, el tiempo empleado con más frecuencia (2642 veces) es 4; además, la posicion central de la horas empleadas se da lugar en 5* 
+*El rango que presenta la variable es de 32	 y el rango intercuartil es 4. El promedio de las puntuaciones de esta distribucion es de 12.9893, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de 3.6*
+*Los datos agrupados alrededor de la moda es de 2.2, por lo tanto es una concentracion de forma lepocurtica*
+*Por otro lado, el grado de sesgo es de 1.09, lo que significa que nuestra variable representada tiene una asimetria a la derecha* 
+
+
+## Variable tiempo (en horas) dedicado a tareas domésticas y cuidado (lunes a viernes)
+```{r , message=FALSE, warning=FALSE}
+describeBy(datat$act_domesticas_LV)
+```
+
+```{r , message=FALSE, warning=FALSE}
+Mode(datat$act_domesticas_LV,na.rm = T)
+range(datat$act_domesticas_LV, na.rm = T)
+quantile(datat$act_domesticas_LV, na.rm=T)
+IQR(datat$act_domesticas_LV, na.rm = T)
+var(datat$act_domesticas_LV, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene como dato de tiempo (en horas) dedicado a tareas domésticas y cuidado (lunes a viernes) un promedio de 3.09 horas de los datos obtenidos. Asímismo, el tiempo empleado con más frecuencia (5331 veces) es 2 horas; además, la posicion central de la horas empleadas se da lugar en 3 horas* 
+*El rango que presenta la variable es de 30	 y el rango intercuartil es 2. El promedio de las puntuaciones de esta distribucion es de 3.698191, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de 1.92*
+*Los datos agrupados alrededor de la moda es de 29.34, por lo tanto es una concentracion de forma leptocurtica*
+*Por otro lado, el grado de sesgo es de 3.29, lo que significa que nuestra variable representada tiene una asimetria a la derecha* 
+
+
+## Variable tiempo (en horas) dedicado a tareas domésticas y cuidado (sábado y domingo)
+```{r , message=FALSE, warning=FALSE}
+describeBy(datat$act_domesticas_SD)
+```
+
+```{r , message=FALSE, warning=FALSE}
+Mode(datat$act_domesticas_SD,na.rm = T)
+range(datat$act_domesticas_SD, na.rm = T)
+quantile(datat$act_domesticas_SD, na.rm=T)
+IQR(datat$act_domesticas_SD, na.rm = T)
+var(datat$act_domesticas_SD, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene como dato de tiempo (en horas) dedicado a tareas domésticas y cuidado (sábado y domingo) un promedio de 5.42 horas de los datos obtenidos. Asímismo, el tiempo empleado con más frecuencia (2868 veces) es 4 horas; además, la posicion central de la horas empleadas se da lugar en 5 horas* 
+*El rango que presenta la variable es de 15 y el rango intercuartil es 5. El promedio de las puntuaciones de esta distribucion es de 10.88153, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de 3.3*
+*Los datos agrupados alrededor de la moda es de 0.34, por lo tanto es una concentracion de forma leptocurtica*
+*Por otro lado, el grado de sesgo es de 0.7, lo que significa que nuestra variable representada tiene una asimetria a la derecha* 
+
+## Variable tiempo (en horas) dedicado a entretenimiento y deporte (lunes a viernes)
+```{r , message=FALSE, warning=FALSE}
+describeBy(datat$act_domesticas_LV)
+```
+
+```{r , message=FALSE, warning=FALSE}
+Mode(datat$act_ocio_LV,na.rm = T)
+range(datat$act_ocio_LV, na.rm = T)
+quantile(datat$act_ocio_LV, na.rm=T)
+IQR(datat$act_ocio_LV, na.rm = T)
+var(datat$act_ocio_LV, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene un tiempo (en horas) dedicado a entretenimiento y deporte (lunes a viernes) promedio de 3.09 horas de los datos obtenidos. Asímismo, el tiempo empleado con más frecuencia (8153 veces) es 1 hora; además, la posicion central de la horas empleadas se da lugar en 3 hora* 
+*El rango que presenta la variable es de 30	y el rango intercuartil es 1.666667. El promedio de las puntuaciones de esta distribucion es de 0.9980857, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de 1.92*
+*Los datos agrupados alrededor de la moda es de 29.34, por lo tanto es una concentracion de forma leptocurtica*
+*Por otro lado, el grado de sesgo es de 3.29, lo que significa que nuestra variable representada tiene una asimetria a la derecha*
+
+## Variable tiempo (en horas) dedicado a entretenimiento y deporte (sábado y domingo)
+```{r , message=FALSE, warning=FALSE}
+describeBy(datat$act_ocio_SD)
+```
+
+```{r , message=FALSE, warning=FALSE}
+Mode(datat$act_ocio_SD,na.rm = T)
+range(datat$act_ocio_SD, na.rm = T)
+quantile(datat$act_ocio_SD, na.rm=T)
+IQR(datat$act_ocio_SD, na.rm = T)
+var(datat$act_ocio_SD, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene un tiempo (en horas) dedicado a entretenimiento y deporte (sábado y domingo) promedio de 1.98 horas de los datos obtenidos. Asímismo, el tiempo empleado con más frecuencia (5998 veces) es 2 horas; además, la posicion central de la horas empleadas se da lugar en 2 horas* 
+*El rango que presenta la variable es de 15	y el rango intercuartil es 2. El promedio de las puntuaciones de esta distribucion es de 2.794762, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de 1.67*
+*Los datos agrupados alrededor de la moda es de 4.86, por lo tanto es una concentracion de forma leptocurtica*
+*Por otro lado, el grado de sesgo es de 1.55, lo que significa que nuestra variable representada tiene una asimetria a la derecha*
+
+## Varible: indice aditivo enfermedades del docente
+```{r , message=FALSE, warning=FALSE}
+describeBy(datat$enfermedades)
+```
+
+```{r , message=FALSE, warning=FALSE}
+Mode(datat$enfermedades,na.rm = T)
+range(datat$enfermedades, na.rm = T)
+quantile(datat$enfermedades, na.rm=T)
+IQR(datat$enfermedades, na.rm = T)
+var(datat$enfermedades, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene como dato respecto a enfermedades un promedio de 2.24 de los datos obtenidos. Asímismo, el numero de enfermedades con más frecuencia (4576 veces) es 1 enfermedad; además, la posicion central de las enfermedades se da lugar en 2* 
+*El rango que presenta la variable es de 11	y el rango intercuartil es 2. El promedio de las puntuaciones de esta distribucion es de 3.247019, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de 1.8*
+*Los datos agrupados alrededor de la moda es de 0.44, por lo tanto es una concentracion de forma leptocurtica*
+*Por otro lado, el grado de sesgo es de 0.85, lo que significa que nuestra variable representada tiene una asimetria a la derecha*
+
+## Varible: indice aditivo situaciones que alguno de los miembros del hogar tuvo que atravesar 
+```{r , message=FALSE, warning=FALSE}
+describeBy(datat$situaciones)
+```
+
+```{r , message=FALSE, warning=FALSE}
+Mode(datat$situaciones,na.rm = T)
+range(datat$situaciones, na.rm = T)
+quantile(datat$situaciones, na.rm=T)
+IQR(datat$situaciones, na.rm = T)
+var(datat$situaciones, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene como dato respecto a situaciones que alguno de los miembros del hogar tuvo que atravesar un promedio de 1.47 situaciones de los datos obtenidos. Asímismo, el dato de situaciones ocurridas con más frecuencia (5751 veces) es 1; además, la posicion central del grado de las situaciones da lugar en 1 por las que los docentes tuvieron que afrontar* 
+*El rango que presenta la variable es de 6 y el rango intercuartil es 2. El promedio de las puntuaciones de esta distribucion es de 1.581486, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de 1.26*
+*Los datos agrupados alrededor de la moda es de -0.02, por lo tanto es una concentracion de forma platicurtica*
+*Por otro lado, el grado de sesgo es de 0.69, lo que significa que nuestra variable representada tiene una asimetria a la derecha* 
+
+
+## Varible: indice aditivo programas o estrategias formativa de las que participó el docente
+```{r , message=FALSE, warning=FALSE}
+describeBy(datat$programas)
+```
+
+```{r , message=FALSE, warning=FALSE}
+Mode(datat$programas,na.rm = T)
+range(datat$programas, na.rm = T)
+quantile(datat$programas, na.rm=T)
+IQR(datat$programas, na.rm = T)
+var(datat$programas, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene como dato respecto programas o estrategias formativa de las que participó el docente un promedio de 2.21 de los datos obtenidos. Asímismo, el dato de satisfaccion empleado con más frecuencia (7132 veces) es 3 además, la posicion central del grado de satisfaccion da lugar en 2* 
+*El rango que presenta la variable es de 3 y el rango intercuartil es 1. El promedio de las puntuaciones de esta distribucion es de 0.7264997, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de 0.85*
+*Los datos agrupados alrededor de la moda es de -1.01, por lo tanto es una concentracion de forma platicurtica*
+*Por otro lado, el grado de sesgo es de-0.05, lo que significa que nuestra variable representada tiene una asimetria a la izquierda* 
+
+
+## Varible: indice aditivo satisfaccion del docente
+```{r , message=FALSE, warning=FALSE}
+describeBy(datat$satisfaccion)
+```
+
+```{r , message=FALSE, warning=FALSE}
+Mode(datat$satisfaccion,na.rm = T)
+range(datat$satisfaccion, na.rm = T)
+quantile(datat$satisfaccion, na.rm=T)
+IQR(datat$satisfaccion, na.rm = T)
+var(datat$satisfaccion, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene como  dato respecto satisfaccion del docente se da en un promedio de 6.71 de los datos obtenidos. Asímismo, el dato de satisfaccion empleado con más frecuencia (2817 veces) es 6.111111 además, la posicion central del grado de satisfaccion da lugar en 6.67* 
+*El rango que presenta la variable es de 10	 y el rango intercuartil es  2.222222. El promedio de las puntuaciones de esta distribucion es de  2.199664, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de 1.48*
+*Los datos agrupados alrededor de la moda es de -0.18	, por lo tanto es una concentracion de forma platicurtica*
+*Por otro lado, el grado de sesgo es de -0.04	, lo que significa que nuestra variable representada tiene una asimetria a la izquierda* 
+
+
+## Variable indice aditivo de la dificultad de las actividades
+```{r , message=FALSE, warning=FALSE}
+describeBy(datat$dificultad_actividades)
+```
+
+```{r , message=FALSE, warning=FALSE}
+Mode(datat$dificultad_actividades,na.rm = T)
+range(datat$dificultad_actividades, na.rm = T)
+quantile(datat$dificultad_actividades, na.rm=T)
+IQR(datat$dificultad_actividades, na.rm = T)
+var(datat$dificultad_actividades, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene como  dato respecto la dificultad de las actividades se da en un promedio de 6.11 de los datos obtenidos. Asímismo, el dato de satisfaccion empleado con más frecuencia ( 4582 veces) es 6.666667 además, la posicion central del grado de satisfaccion da lugar en 6* 
+*El rango que presenta la variable es de 10	 y el rango intercuartil es  1.333333. El promedio de las puntuaciones de esta distribucion es de  2.58681, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de 1.61*
+*Los datos agrupados alrededor de la moda es de 0.37, por lo tanto es una concentracion de forma leptocurtica*
+*Por otro lado, el grado de sesgo es de -0.02	, lo que significa que nuestra variable representada tiene una asimetria a la izquierda* 
+
+
+##Variable indice aditivo dificultad del quehacer docente
+```{r , message=FALSE, warning=FALSE}
+describeBy(datat$dificultad_quehacer)
+```
+
+```{r , message=FALSE, warning=FALSE}
+Mode(datat$dificultad_quehacer,na.rm = T)
+range(datat$dificultad_quehacer, na.rm = T)
+quantile(datat$dificultad_quehacer, na.rm=T)
+IQR(datat$dificultad_quehacer, na.rm = T)
+var(datat$dificultad_quehacer, na.rm = T) #varianza
+```
+#INTERPRETACION
+*Se tiene como  dato respecto la dificultad de las actividades se da en un promedio de 5.4 de los datos obtenidos. Asímismo, el dato de satisfaccion empleado con más frecuencia (2838 veces) es 5.333333 además, la posicion central del grado de satisfaccion da lugar en 5.33* 
+*El rango que presenta la variable es de 10	 y el rango intercuartil es 2.666667. El promedio de las puntuaciones de esta distribucion es de 3.012781, mientras que la dispersion por la distribucion en relacion con la puntuacion media es de 1.74*
+*Los datos agrupados alrededor de la moda es de 0.29, por lo tanto es una concentracion de forma leptocurtica*
+*Por otro lado, el grado de sesgo es de 0.13, lo que significa que nuestra variable representada tiene una asimetria a la derecha* 
+
+# Limpieza de datos
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+str(datat)
+```
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+datat$P1_6[is.na(datat$P1_6)]<-mean(datat$P1_6,na.rm=TRUE) 
+datat$ P1_9_D_LV_MIN[is.na(datat$ P1_9_D_LV_MIN)]<-mean(datat$ P1_9_D_LV_MIN, na.rm=TRUE)
+datat$ P1_9_E_LV_MIN[is.na(datat$ P1_9_E_LV_MIN)]<-mean(datat$ P1_9_E_LV_MIN, na.rm=TRUE)
+datat$ P1_9_A_LV_HORA[is.na(datat$ P1_9_A_LV_HORA)]<-mean(datat$ P1_9_A_LV_HORA,na.rm=TRUE)
+datat$ P1_9_A_LV_MIN[is.na(datat$ P1_9_A_LV_MIN)]<-mean(datat$ P1_9_A_LV_MIN,na.rm=TRUE)
+datat$ P1_9_A_SD_HORA[is.na(datat$ P1_9_A_SD_HORA)]<-mean(datat$ P1_9_A_SD_HORA,na.rm=TRUE)
+datat$ P1_9_A_SD_MIN[is.na(datat$ P1_9_A_SD_MIN)]<-mean(datat$ P1_9_A_SD_MIN,na.rm=TRUE)
+datat$ P1_9_B_LV_HORA[is.na(datat$ P1_9_B_LV_HORA)]<-mean(datat$ P1_9_B_LV_HORA,na.rm=TRUE)
+datat$ P1_9_B_LV_MIN [is.na(datat$ P1_9_B_LV_MIN)]<-mean(datat$ P1_9_B_LV_MIN,na.rm=TRUE)
+datat$ P1_9_B_SD_HORA [is.na(datat$ P1_9_B_SD_HORA)]<-mean(datat$ P1_9_B_SD_HORA,na.rm=TRUE)
+datat$ P1_9_B_SD_MIN [is.na(datat$ P1_9_B_SD_MIN)]<-mean(datat$ P1_9_B_SD_MIN,na.rm=TRUE)
+datat$ P1_9_C_LV_HORA [is.na(datat$ P1_9_C_LV_HORA)]<-mean(datat$P1_9_C_LV_HORA,na.rm=TRUE)
+datat $ P1_9_C_LV_MIN [is.na(datat $ P1_9_C_LV_MIN)]<-mean(datat$P1_9_C_LV_MIN,na.rm=TRUE)
+datat$ P1_9_C_SD_HORA [is.na(datat$ P1_9_C_SD_HORA)]<-mean(datat$P1_9_C_SD_HORA,na.rm=TRUE)
+datat$ P1_9_C_SD_MIN[is.na(datat$ P1_9_C_SD_MIN)]<-mean(datat$ P1_9_C_SD_MIN, na.rm=TRUE)
+datat$ P1_9_D_LV_HORA[is.na(datat$ P1_9_D_LV_HORA)]<-mean(datat$P1_9_D_LV_HORA,na.rm=TRUE)
+datat$ P1_9_D_SD_MIN[is.na(datat$ P1_9_D_SD_MIN)]<-mean(datat$ P1_9_D_SD_MIN, na.rm=TRUE)
+datat$ P1_9_D_SD_HORA[is.na(datat$ P1_9_D_SD_HORA)]<-mean(datat$ P1_9_D_SD_HORA, na.rm=TRUE)
+datat$ P1_9_D_SD_MIN [is.na(datat$ P1_9_D_SD_MIN)]<-mean(datat$ P1_9_D_SD_MIN, na.rm=TRUE)
+datat$ P1_9_E_LV_HORA [is.na(datat$ P1_9_E_LV_HORA)]<-mean(datat$ P1_9_E_LV_HORA, na.rm=TRUE)
+datat$ P1_9_E_SD_MIN[is.na(datat$ P1_9_E_SD_MIN)]<-mean(datat$ P1_9_E_SD_MIN, na.rm=TRUE)
+datat$ P1_9_E_SD_HORA[is.na(datat$ P1_9_E_SD_HORA)]<-mean(datat$ P1_9_E_SD_HORA, na.rm=TRUE)
+datat$ P1_9_E_SD_MIN [is.na(datat$ P1_9_E_SD_MIN)]<-mean(datat$ P1_9_E_SD_MIN, na.rm=TRUE)
+datat$P1_9_A_LV_MIN[is.na(datat$P1_9_A_LV_MIN)]<-mean(datat$P1_9_A_LV_MIN,na.rm=TRUE)
+datat$enfermedades[is.na(datat$enfermedades)] <- mean(datat$enfermedades,na.rm=TRUE)
+datat$situaciones[is.na(datat$situaciones)] <- mean(datat$situaciones,na.rm=TRUE)
+datat$programas[is.na(datat$programas)] <- mean(datat$programas,na.rm=TRUE)
+datat$satisfaccion [is.na(datat$satisfaccion)] <- mean(datat$satisfaccion,na.rm=TRUE)
+datat$dificultad_actividades[is.na(datat$dificultad_actividades)] <- mean(datat$dificultad_actividades,na.rm=TRUE)
+datat$dificultad_quehacer[is.na(datat$dificultad_quehacer)]<- mean(datat$dificultad_quehacer,na.rm=TRUE)
+```
+
+```{r , message=FALSE, warning=FALSE}
+datat$LABORAL = datat$act_laborales_LV + datat$act_laborales_SD
+str(datat$LABORAL)
+summary(datat$LABORAL)
+summary(datat$act_laborales_LV)
+summary(datat$act_laborales_SD)
+```
+
+```{r , message=FALSE, warning=FALSE}
+library(kableExtra)
+```
+
+
+# PARTE 2 - PRUEBAS ESTADISTICAS 
+A partir de lo anterior, realizamos las  siguientes pruebas para aceptar o rechazar nuestra hipotesis. 
+
+## Prueba T de diferencia de medias: una variable numérica y otra categórica (dicotómica)
+### [edad] y [sexo]
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(psych)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+describe.by(datat$edad, group = datat$sexo)
+```
+
+```{r , message=FALSE, warning=FALSE}
+t.test(edad~sexo, data = datat,conf.level = 0.95)
+```
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(gplots)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+plotmeans(datat$edad~datat$sexo,xlab="Sexo",ylab="Edad", main="Gráfico de medias de edad según el sexo")
+```
+Hipótesis:
+H0: La edad media es igual para el sexo y la edad.
+HA: La edad media no es igual para el sexo y la edad.
+P-valor: 8.022e-09
+Elegir el alfa: 0.05
+
+*Conclusión*: Luego de realizar el t- test, obtuvimos un p-valor de 8.022e-09, el cual al ser menor que 0.05 (alpha), nos permite rechazar la hipótesis nula. Por lo tanto, concluimos que las medias de edades son diferentes de acuerdo al sexo. El resultado es que la edad promedio es un poco más alta cuando son del sexo masculino (45.91704), que cuando es del sexo femenino (45.07307). Ello se podría deber a que cuando los docentes de sexo masculino han tenido una mayor predisposicion a realizar la tarea docente por el genero y las menores responabilidades del hogar en su gran mayoria. Además de ser considerada en el país como una actividad relacionada con el trabajo femenino. En este sentido, la edad de los docentes de acuerdo a su sexo puede explicar la mayor predominancia en el trabajo segun la edad.
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+boxplot1 <- ggplot(datat, aes(y =edad, x = sexo, fill=factor(sexo))) +
+  geom_boxplot(width=0.5,lwd=1)
+boxplot1
+```
+
+### [horas de trabajo] y [sexo]
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+describe.by(datat$LABORAL, group = datat$sexo)
+```
+
+```{r , message=FALSE, warning=FALSE}
+t.test(LABORAL ~ sexo, data = datat,conf.level = 0.95)
+```
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+plotmeans(datat$LABORAL~datat$sexo,xlab="Sexo",ylab="Tiempo laboral", main="Gráfico de medias del tiempo laboral según el sexo")
+```
+Hipótesis:
+H0: La edad media es igual para el sexo y las horas laborables.
+HA: La edad media no es igual para el sexo y las horas laborables.
+P-valor: 4.795e-12
+Elegir el alfa: 0.05
+
+*Conclusión*: Luego de realizar el t- test, obtuvimos un p-valor de  4.795e-12, el cual al ser menor que 0.05 (alpha), nos permite rechazar la hipótesis nula. Por lo tanto, concluimos que las medias de las horas laborables son diferentes de acuerdo al sexo. El resultado es que la edad promedio es un poco más alta cuando son del sexo femenino (14.6342), que cuando es del sexo masculino (13.9798). Ello se podría deber a que cuando los docentes de sexo femenino son las que en su mayoria laboran en primaria e inicial por lo cual, para el desarrollo de sus clases y captar la atencion de sus estudiantes invierten mas tiempo. Además, al relacionar su sexo con al ser las mujeres mucho más artisticas para realizar las labores que adicionalmente les encarga la institucion, sobretodo en el area de primaria e inicial. En este sentido, las horas laborables de los docentes de acuerdo a su sexo puede explicar la mayor predominancia en el trabajo. 
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+boxplot1 <- ggplot(datat, aes(y = LABORAL, x = sexo, fill=factor(sexo))) +
+  geom_boxplot(width=0.5,lwd=1)
+boxplot1
+```
+
+
+## Prueba ANOVA: para una variable numérica y otra categórica (+2 grupos)
+### [tiempo dedicado a actividadeslaborales] y [condición laboral del docente en la IE]
+
+En este caso analizamos el tiempo dedicado a actividades laborales de lunes a viernes con la condición laboral del docente en la IE
+
+```{r , message=FALSE, warning=FALSE}
+str(datat$LABORAL)
+str(datat$P1_7)
+```
+```{r , message=FALSE, warning=FALSE}
+describeBy(datat$LABORAL, group=datat$P1_7)
+```
+
+```{r , message=FALSE, warning=FALSE}
+library(ggplot2)
+boxplot <- ggplot(datat, aes(y = LABORAL, x = P1_7,fill=factor( P1_7))) +
+  geom_boxplot()
+boxplot+xlab("Condicion laboral")+ylab("tiempo dedicado a actividades laborales")
+```
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(gplots)
+plotmeans(datat$LABORAL~datat$P1_7, p=0.95, 
+          xlab="Condicion laboral", ylab="tiempo dedicado a actividades laborales", 
+          main="Mean Plot\n with 95% CI")
+```
+
+```{r , message=FALSE, warning=FALSE}
+library(nortest)
+by(datat$act_laborales_LV,datat$P1_7,lillie.test)
+```
+H0: No existe diferencia entre medias grupales
+H1: Existe diferencia entre medias grupales
+En este caso, los 2 de los 3 son menores a 0.05, por tanto se acepta la hipotesis y no podemos continuar con la prueba estadistica. Se puede afirmar tambien que estos grupos tienen una distribucion normal y no continuamos con los demás analisis. 
+
+
+## Prueba chi2: para dos variables categóricas (una nominal y otra ordinal)
+### [sexo] y [nivel de satisfacción del docente con su empleo en la IE]
+```{r , message=FALSE, warning=FALSE}
+str(datat$sexo)
+str(datat$P1_24_E)
+```
+```{r , message=FALSE, warning=FALSE}
+tabla=table(datat$P1_24_E,datat$sexo)
+tabla
+```
+```{r , message=FALSE, warning=FALSE}
+prop.table(tabla,2)*100 
+```
+
+```{r , message=FALSE, warning=FALSE}
+tabla%>%
+ kbl(caption="Tabla:Nivel de satisfacción del docente con su empleo en la IE segun el sexo")%>%
+  kable_classic(full_width=F,html_font="Times New Roman")
+```
+
+```{r , message=FALSE, warning=FALSE}
+barplot(tabla, legend = rownames(tabla),axis.lty = 1, xlab="Sexo",
+        ylab="Nivel de satisfacción del docente con su empleo en la IE",
+        main="Nivel de satisfacción del docente con su empleo en la IE segun el sexo", col= c("darkseagreen1", "hotpink1","olivedrab1", "mistyrose1"))
+
+```
+Se busca identificar si existe asociacion entre dos variables categoricas
+
+```{r , message=FALSE, warning=FALSE}
+chisq.test(tabla)
+```
+*H0: variables estadisticamente independientes*
+*H1: hipotesis alternativa, hipotesis las variables estan relacionadas una con otra*
+P-valor:0.0128
+Elegir el alfa: x > 0.05
+Luego de realizar la prueba chi2, obtuvimos un p-valor de 0.0128, el cual al ser menor que 0.05 (alpha) nos permite rechazar la hipotesis nula, entonces hay asociación entre las variables planteadas.
+
+#Al menos una nominal, se tienen 2 medidas simetrica o direccionales
+#1. utilizaremos medidas simétricas: 
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(vcd)
+library(DescTools)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+assocstats(tabla)
+```
+A partir de esto observamos el grado de intensidad, en este caso presenta una muy debil. A pesar de haber pasado la prueba las variables en cuestion entre ellas no son estadisticamente dependientes como se espera. Por tanto podemos decir que el [sexo] y [nivel de satisfacción del docente con su empleo en la IE] no se encuentran como tal relacionados ni se pueden explicar por ellos.
+
+### [sexo] y [nivel de dificultad para realizar el quehacer docente al comunicarse y retroalimentar y motivar a las y los estudiantes]
+
+```{r , message=FALSE, warning=FALSE}
+str(datat$sexo)
+str(datat$P1_27_A)
+```
+
+```{r , message=FALSE, warning=FALSE}
+tabla1=table(datat$P1_27_A,datat$sexo)
+tabla1
+```
+```{r , message=FALSE, warning=FALSE}
+prop.table(tabla1,2)*100 
+```
+
+```{r , message=FALSE, warning=FALSE}
+tabla1%>%
+ kbl(caption="Tabla 1: Nivel de dificultad para realizar el quehacer docente al comunicarse y retroalimentar y motivar a las y los estudiantes segun el sexo del docente ")%>%
+  kable_classic(full_width=F,html_font="Times New Roman")
+```
+
+```{r , message=FALSE, warning=FALSE}
+barplot(tabla1,legend = rownames(tabla1),axis.lty = 1, xlab="Sexo",
+        ylab="Nivel de dificultad para realizar el quehacer docente al comunicarse y retroalimentar y motivar a las y los estudiantes",
+        main="Nivel de dificultad para realizar el quehacer docente al comunicarse y retroalimentar y motivar a las y los estudiantes segun el sexo del docente", col= c("darkseagreen1", "hotpink1","olivedrab1", "mistyrose1"))
+
+```
+```{r , message=FALSE, warning=FALSE}
+chisq.test(tabla1)
+```
+*H0: variables estadisticamente independientes*
+*H1: hipotesis alternativa, hipotesis las variables estan relacionadas una con otra*
+P-valor:2.2e-16
+Elegir el alfa: x > 0.05
+Luego de realizar la prueba chi2, obtuvimos un p-valor de 2.2e-16, el cual al ser menor que 0.05 (alpha) nos permite rechazar la hipotesis nula, entonces hay asociación entre las variables planteadas.
+
+#Al menos una nominal, se tienen 2 medidas simetrica o direccionales
+#1. utilizaremos medidas simétricas: 
+
+```{r , message=FALSE, warning=FALSE}
+assocstats(tabla1)
+```
+
+A partir de esto observamos el grado de intensidad, en este caso presenta una muy debil. A pesar de haber pasado la prueba las variables en cuestion entre ellas no son estadisticamente dependientes como se espera. Por tanto podemos decir que el [sexo] y [Nivel de dificultad para realizar el quehacer docente al comunicarse y retroalimentar y motivar a las y los estudiantes] no se encuentran como tal relacionados ni se pueden explicar por ellos.
+
+## Prueba de correlación: para dos variables numéricas
+### [edad] y [tiempo dedicado a actividades laborales]
+```{r , message=FALSE, warning=FALSE}
+ggplot(datat, aes(x=datat$LABORAL, y=datat$edad)) + geom_point(colour = "blue")
+```
+Se puede observar que gran parte de los datos se encuentran en aproximadamente 20horas semanales de trabajo y se encuentran distribuidos casi homogeneamente de acuerdo a las distintas edades
+
+#### PASO 1
+Analizar la normalidad de estas variables: Shapiro-Wilk y Kolmogorov- Smirnov
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(nortest)
+lillie.test(datat$LABORAL)
+lillie.test(datat$edad)
+```
+La correlacion de ambas es normal, por tanto, en este caso no procedemos a realizar una prueba parametrica y podremos decir que entre ambas variables no se presenta una correlacion.
+
+### [número de estudiantes a los que se brinda acompañamiento en la IE] y [tiempo dedicado a actividades laborales]
+```{r , message=FALSE, warning=FALSE}
+ggplot(datat, aes(x=datat$LABORAL, y=datat$P1_6)) + geom_point(colour = "blue")
+```
+Se puede observar que gran parte de los datos se encuentran en aproximadamente 20horas semanales de trabajo y se encuentran distribuidos casi homogeneamente de acuerdo al numero de estudiantes que brindan acompañamiento
+
+#### PASO 1
+Analizar la normalidad de estas variables: Shapiro-Wilk y Kolmogorov- Smirnov
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(nortest)
+lillie.test(datat$LABORAL)
+lillie.test(datat$P1_6)
+```
+La correlacion de ambas es normal, por tanto, en este caso no procedemos a realizar una prueba parametrica y podremos decir que entre ambas variables no se presenta una correlacion.
+
+
+### [enfermedades] y [tiempo dedicado a actividades laborales]
+```{r , message=FALSE, warning=FALSE}
+ggplot(datat, aes(x=datat$LABORAL, y=datat$enfermedades)) + geom_point(colour = "blue")
+```
+Se puede observar que gran parte de los datos se encuentran distribuidos de acuerdo a la cantidad de enfermedades y no se encuentran distribuidos homogeneamente ni existe correlacion
+
+#### PASO 1
+Analizar la normalidad de estas variables: Shapiro-Wilk y Kolmogorov- Smirnov
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(nortest)
+lillie.test(datat$LABORAL)
+lillie.test(datat$enfermedades)
+```
+
+
+# Pregunta de investigación
+¿Cuáles son los factores que más han afectado el desarrollo de las actividades laborales de los docentes de Educación Básica Regular (EBR) en el contexto de pandemia por la COVID-19?
+
+
+# PARTE 3 - RESOLUCION DE LAS HIPOTESIS 
+
+## *Hipótesis 1*: Los factores que más han afectado el desarrollo de las actividades laborales de los docentes son la edad, el sexo.
+```{r , message=FALSE, warning=FALSE}
+modelo1=lm(datat$LABORAL~datat$edad+datat$sexo)
+summary(modelo1)
+```
+Primero, nos preguntamos si el modelo es válido. Para ello se obseerva el p-valor que es 
+4.837e-11 menor a 0.05 entonces es menor y es un modelo valido que tiene relacion entre las variables. A partir de esto observamos cuando explica el modelo para ello se observa el rcuadrado ajustado (0.002401 ) entoces este modelos explica al 0.2401% este es un porcentaje muy bajo.
+Luego observamos si las variables independientes aportan al modelo; en este caso las variables son menor a 0.05 por tanto si aporta al modelo.
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+modelo1$coefficients
+```
+
+Identificamos los coeficientes y realizamos la ecucacion:
+
+#factores que más han afectado el desarrollo de las actividades laborales de los docentes =    14.139085038+ (-0.003451118*datat$edad) + (0.652736355*sexoF)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+14.139085038+ (-0.003451118*30) + (0.652736355*1)
+```
+En este caso si una persona seleccionada es mujer y tiene 30años es muy probable que los factores que afecten en horas laborales sean de 14.68 horas.
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+14.139085038+ (-0.003451118*30) + (0.652736355*0)
+```
+En este caso si una persona seleccionada es hombre y tiene 30años es muy probable que los factores que afecten en horas laborales sean de 14.03 horas.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+14.68829-14.03555
+```
+En ambos casos se ve una diferencia de 0.65274 horas laborales invertidas con la misma edad pero diferencia de sexo. Por tanto podemos suponer que las mujeres desarrollan más actividades laborales que los hombres.
+
+
+## *Hipótesis 2*: Los factores que más han afectado el desarrollo de las actividades laborales de los docentes el número de estudiantes a los que brinda acompañamiento.
+
+GRAFICO DE DISPERSION  
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+plot(datat$P1_6, datat$LABORAL)
+``` 
+Segun la grafica se puede observar una correlacion alta al inicio de ambas variables que se va dispersando a medida que se va alejando.
+
+#A partir de ello se ve la correlacion
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(nortest)
+lillie.test(datat$LABORAL)
+lillie.test(data$P1_6)
+```
+Ambas variables se rechaza la hipotesis nulas, por lo tanto no son normales y procedemos a continuar con el modelo.
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+cor.test(datat$LABORAL,datat$P1_6, method=("spearman"))
+```
+Si existe correlacion porque el P valor es menor a 0.05  Esta correlacion es directa y debil. 
+
+#Anova ¿modelo es valido o no?
+H0: el modelo no es valido
+H1: el modelo si es valido
+```{r , message=FALSE, warning=FALSE}
+modelo2=lm(datat$LABORAL~datat$P1_6)
+anova(modelo2)
+summary(modelo2)
+```
+Primero leemos el P-VALUE que es 2.2e-16 como es menor a 0.05, rechazamos la hipotesis nula, por lo cual se entiende que este es un modelo valido. Esto significa que existe una relacion lineal entre ambas variables.
+
+A partir de ello observamos el AdjustedR-quared (0.0154), este explica al 1.54% de la variabilidad del porcentaje de Los factores que más han afectado el desarrollo de las actividades laborales de los docentes el número de estudiantes a los que brinda acompañamiento
+
+Por ello se plante la siguiente regresion:
+
+#horas laborables de acompañamiento estudiantes= (1.382e+01) + ((1.511e-02)*P1_6)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+(1.382e+01) + ((1.511e-02)*50)
+```
+las horas laborales de acompañamiento a los estudiantes si son 50 alumnos por docente son de 14.5 horas.
+
+## *Hipótesis 3*: los factores que más han afectado el desarrollo de las actividades laborales de los docentes son el padecimiento de enfermedades.
+
+GRAFICO DE DISPERSION  
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+plot(datat$enfermedades, datat$LABORAL)
+``` 
+Segun la grafica se puede observar que entre variables no se encuentra ni logra relacion entre si mismas por tanto hay consideramos que es poco probable que estas se relacionen entre sí
+
+#A partir de ello se ve la correlacion
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(nortest)
+lillie.test(datat$LABORAL)
+lillie.test(datat$enfermedades)
+```
+Ambas variables se rechaza la hipotesis nulas, por lo tanto no son normales y procedemos a continuar con el modelo.
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+cor.test(datat$LABORAL,datat$enfermedades, method=("spearman"))
+```
+Si existe correlacion porque el P valor es menor a 0.05  Esta correlacion es directa y debil. 
+
+#Anova ¿modelo es valido o no?
+H0: el modelo no es valido
+H1: el modelo si es valido
+```{r , message=FALSE, warning=FALSE}
+modelo3=lm(datat$LABORAL~datat$enfermedades)
+anova(modelo3)
+summary(modelo3)
+```
+Primero leemos el P-VALUE que es 2.2e-16 como es menor a 0.05, rechazamos la hipotesis nula, por lo cual se entiende que este es un modelo valido. Esto significa que existe una relacion lineal entre ambas variables.
+
+A partir de ello observamos el AdjustedR-quared (0.006925), este explica al 0.6925% de la variabilidad del porcentaje de Los factores que más han afectado el desarrollo de las actividades laborales de los docentes con las enfermedades que estos padecen
+
+Por ello se plante la siguiente regresion:
+
+#desarrollo de actividades laborales con las enfermedades del docente= (13.78038) + ((0.28618)*datat$enfermedades)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+(13.78038) + ((0.28618)*11)
+```
+Las horas laborales si se tienen 11 enfermedades se ven afectadas en 16.92 horas de actividad laboral docente
+
+## *Hipótesis 4*: los factores que más han afectado el desarrollo de las actividades laborales de los docentes segun su sexo ha sido la participación de programas o estrategias formativas.
+
+```{r , message=FALSE, warning=FALSE}
+modelo4=lm(datat$LABORAL~datat$sexo+datat$programas)
+summary(modelo4)
+```
+El modelo es matematicamente valido porque el p-value (1.86e-06) es menor a 0.05
+Luego se ve que tanto explica el modelo con el R2ajustado (0.706), entonces el modelo explica al 70.6% 
+Después vemos los p-valores de cada variable, si estos son menores a 0.05 asi que son validos
+Finalmente los valores estimados de la variable para formar la ecuacion 
+
+
+```{r , message=FALSE, warning=FALSE}
+modelo4$coefficients
+```
+Identificamos los coeficientes y realizamos la ecucacion:
+
+Laboral=14.6207495+ (-0.4825896*datat$P1_26_AFácil)+ ( -0.9886902*datat$P1_26_A Dificil)+( -0.5561579*datat$P1_26_AMuy difícil)+(0.6171316 *datat$P1_1Femenino)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+14.6207495+ (-0.4825896*1)+ ( -0.9886902*0)+( -0.5561579*0)+(0.6171316 *1)
+```
+Se considera que los factores que más han afectado el desarrollo de las actividades laborales de los docentes que son de sexo femenino y consideran que ha sido facil la participación de programas o estrategias formativas en horas son 14.75529
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+14.6207495+ (-0.4825896*1)+ ( -0.9886902*0)+( -0.5561579*0)+(0.6171316 *0)
+```
+Se considera que los factores que más han afectado el desarrollo de las actividades laborales de los docentes que son de sexo masculino y consideran que ha sido facil la participación de programas o estrategias formativas en horas son 14.13816
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+14.75529-14.13816
+```
+Ambos casos presentan una diferencia de 0.61713 en la cual se observa que las horas que las muejres invierten son mas que mas que los hombres considerando ambos que el nivel de las actividades formativas que manifiestan sentir es en un nivel facil. 
+
+
+## *Hipótesis 5*: los factores que más han afectado el desarrollo de las actividades laborales de los docentes son la percepción de dificultad del quehacer docente segun su sexo en el contexto de educación virtual.
+
+
+```{r , message=FALSE, warning=FALSE}
+modelo5=lm(datat$LABORAL~datat$sexo+datat$dificultad_quehacer)
+summary(modelo5)
+```
+Primero, nos preguntamos si el modelo es válido. Para ello se obseerva el p-valor que es 
+2.534e-15 menor a 0.05 entonces es menor y es un modelo valido que tiene relacion entre las variables. A partir de esto observamos cuando explica el modelo para ello se observa el rcuadrado ajustado (0.003438) entoces este modelos explica al 0.3438% este es un porcentaje muy bajo. Luego observamos si las variables independientes aportan al modelo; en este caso las variables son menor a 0.05 por tanto si aporta al modelo.
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+modelo5$coefficients
+```
+
+Identificamos los coeficientes y realizamos la ecucacion:
+
+Desarrollo de quehacer docente segun el sexo= 13.3741182+(0.6140823*datat$sexoFemenino)+ (datat$dificultad_quehacer*0.1171721)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+13.3741182+(0.6140823*1)+ (10*0.1171721)
+```
+Los factores que más han afectado el desarrollo de las actividades laborales de los docentes son la percepción de dificultad del quehacer docente, en este caso es un nivel 10 de dificultad, y segun el sexo femenino ha afectado en  15.15992 horas de las horas laborales que tiene repercusion en su quehacer.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+13.3741182+(0.6140823*0)+ (10*0.1171721)
+```
+Los factores que más han afectado el desarrollo de las actividades laborales de los docentes son la percepción de dificultad del quehacer docente, en este caso es un nivel 10 de dificultad, y segun el sexo masculino ha afectado en 14.54584 horas de las horas laborales que tiene repercusion en su quehacer.
+
+
+*Adicional a nuestro analisis queremos observar si la edad, el numero de personas en el hogar, el numero de estudiantes que brinda acompañamiento a los docentes, las enfermedades, las situaciones que los docentes afrontan, los programas de capacitacion, la satisfaccion docente, las dificultades de realizar las actividades y la dificultad del quehacer docente, para ello realizamos: *
+
+# Componentes principales
+## PASO 1:
+```{r , message=FALSE, warning=FALSE}
+library(dplyr)
+```
+
+```{r , message=FALSE, warning=FALSE}
+datacp=select(datat,"edad","P1_3","P1_6","enfermedades","situaciones","programas","satisfaccion","dificultad_actividades","dificultad_quehacer")
+summary(datacp)
+```
+
+
+```{r , message=FALSE, warning=FALSE}
+datacp$edad[is.na(datacp$edad)] <- mean(datacp$edad,na.rm=TRUE)
+datacp$P1_3[is.na(datacp$P1_3)] <- mean(datacp$P1_3,na.rm=TRUE)
+summary(datacp)
+```
+## PASO 2: MATRIZ DE CORRELACIONES
+```{r , message=FALSE, warning=FALSE}
+library(polycor)
+corMatrix=polycor::hetcor(datacp)$correlations
+corMatrix
+```
+Para ver las correlaciones de manera mas amigable revisamos de manera grafica.
+
+```{r , message=FALSE, warning=FALSE}
+library(corrplot)
+correlacion<-round(cor(datacp), 1) 
+corrplot(correlacion, method="number", type="upper")
+```
+Se puede observar que entre las variables seleccionadas gran parte de ellas tienen una correlacion media a baja. Esto lo observaremos siguiendo el ejercicio.
+
+## PASO 3: USO DEL KMO
+Ver si la matriz de correlaciones funciona
+```{r , message=FALSE, warning=FALSE}
+library(psych)
+KMO(corMatrix)
+```
+El Overall MSA =  0.6 por lo tanto siguiendo la idea que este debe ser mayor a 0.5 se cumple que nuestra matriz si funciona 
+A su vez confirmamos con la siguiente prueba:
+```{r , message=FALSE, warning=FALSE}
+cortest.bartlett(corMatrix,n=nrow(datacp))$p.value>0.05
+```
+Al salir falso la informacion, podemos afirmar que si hay correlacion entre variables.
+En ambas pruebas nos permite continuar con el trabajo
+
+## PASO 4: CASO DE COMPONENTES PRINCIPALES
+```{r , message=FALSE, warning=FALSE}
+fa.parallel(datacp, fm="pa", fa="pc", main = "Gráfico de sedimentación Componentes Principales")
+```
+En este caso recomienda utilizar tres factores pero para fines practicos veremos más al detalle los datos
+
+## PASO 5
+```{r , message=FALSE, warning=FALSE}
+library(factoextra)
+library(FactoMineR)
+res.pca <-PCA(datacp, graph = FALSE)
+eig.val <-get_eig(res.pca)
+eig.val
+```
+Hay 4 eigen value mayor a 1, es decir, nuestro comando anterior sugiere tres componentes principales con los cuales trabajaremos. La primera explica al 22.15%, la segunda explica al 15.7% y la tercera a un 12.7%
+Entonces trabajamos con los 3 componentes que explican en gran parte nuestro trabajo
+
+## *vemos la rotacion
+
+```{r , message=FALSE, warning=FALSE}
+comp<- pca(datacp,nfactors = 3,rotate = "varimax")#SE CREA EL COMPONENTE COMP
+```
+
+```{r , message=FALSE, warning=FALSE}
+fa.diagram(comp)
+```
+vemos en cada variable creada a partir de componentes principales.
+Podremos denominar a RC1 como las dificultades que afectan el trabajo docente y a RC2 como las situaciones que afectan al trabajo docente. Y RC3 sobre los factores de nacimiento y la actualizacion docente.
+
+
+## PASO 6: COMUNALIDAD, COMPLEJIDAD Y SINGULARIDAD
+
+*COMUNALIDAD*: CUAL VARIABLE APORTA MAS A LOS COMPONENTES. 
+```{r , message=FALSE, warning=FALSE}
+sort(comp$communality)
+```
+La variable que aporta mas a los componentes es la dificultad_actividades con un 0.733521568  y la segunda variable es la dificultad_quehacer con un 0.719069454
+
+*COMPLEJIDAD*: QUE VARIABLE APORTA A MAS COMPONENTES, no necesariamente es mucho pero aporta a varias variables.
+```{r , message=FALSE, warning=FALSE}
+sort(comp$complexity)
+```
+La variable que aporta  a mas componentes es P1_6 (numero de estudiantes que brinda acompañamiento) con un 2.465477
+
+*SINGULARIDAD*: QUE TANTO LA VARIABLE A APORTADO A UN COMPONENTE
+```{r , message=FALSE, warning=FALSE}
+sort(comp$uniquenesses)
+```
+La variable que aporta mas a un componente es P1_6 (numero de estudiantes que brinda acompañamiento) con un 0.9984923
+
+*crear data frame*
+
+```{r , message=FALSE, warning=FALSE}
+comp_casos<-as.data.frame(comp$scores)
+datacp$A<- comp_casos$RC1
+datacp$B<- comp_casos$RC2
+datacp$C<- comp_casos$RC3
+summary(datacp$A)
+summary(datacp$B)
+summary(datacp$C)
+```
+estandarizamos en una escala del 1 al 100
+
+```{r , message=FALSE, warning=FALSE}
+library(BBmisc)
+datacp$A= normalize(datacp$A, 
+                                        method = "range", 
+                                        margin=2, # by column
+                                        range = c(0, 100))
+
+summary(datacp$A)#rango de 0 a 100 para no ver decimales
+```
+
+```{r , message=FALSE, warning=FALSE}
+datacp$B= normalize(datacp$B, 
+                                        method = "range", 
+                                        margin=2, # by column
+                                        range = c(0, 100))
+
+summary(datacp$B)#rango de 0 a 100 para no ver decimales
+```
+
+```{r , message=FALSE, warning=FALSE}
+datacp$C= normalize(datacp$C, 
+                                        method = "range", 
+                                        margin=2, # by column
+                                        range = c(0, 100))
+
+summary(datacp$C)#rango de 0 a 100 para no ver decimales
+```
+
+## PASO 7: usar factores para otras tecnicas estadisticas 
+
+Dependiente: LABORAL
+Independiente:
+        A: dificultades que afectan el trabajo docente
+        B: las situaciones que afectan al trabajo docente.
+        C: los factores personalesy la actualizacion docente
+
+```{r , message=FALSE, warning=FALSE}
+#incluimos nuestra variable dependiente en la base de datos
+datacp$LABORAL=datat$LABORAL
+datacp$LABORAL=as.numeric(datacp$LABORAL)
+#realizamos el modelo de regresion multiple
+mod<-lm(datacp$LABORAL~datacp$A+datacp$B+datacp$C)
+summary(mod)
+```
+H0: el modelo no es valido
+H1: el modelo es valido
+
+El modelo es matematicamente valido porque el p-value (2.2e-16) es menor a 0.05. Este modelo se explica al 1.195 %, es decir, nuestras variables tienen una capacidad muy baja de explicar 
+
+A partir de esto observamos los p-valores de cada variable, si estos son menores a 0.05  son validos para explicar el modelo. En este caso las tres variables si son menores a 0.05 por tanto si podrian explicar el modelo.
+
+
+Finalmente los valores estimados de la variable para formar la ecuacion 
+```{r , message=FALSE, warning=FALSE}
+mod$coefficients
+```
+
+Dependiente: LABORAL
+Independiente:
+        A: dificultades que afectan el trabajo docente
+        B: las situaciones que afectan al trabajo docente.
+        C: los factores personales y la actualizacion docente 
+##Ecuacion:
+influencia =  10.62266361+ (( 0.02952195*datacp$A)+ ( 0.03948263*datacp$B)+( 0.01630125*datacp$C))
+
+planteamos un caso supuesto para poder utilizar la formula creada:
+
+```{r , message=FALSE, warning=FALSE}
+10.62266361+ (( 0.02952195*60)+ ( 0.03948263*10)+( 0.01630125*100))
+```
+```{r , message=FALSE, warning=FALSE}
+10.62266361+ (( 0.02952195*0)+ ( 0.03948263*0)+( 0.01630125*0))
+```
+```{r , message=FALSE, warning=FALSE}
+19.15325-10.62266
+```
+
+En este caso las horas laborales que se ven afectadas por las dificultades laborales (cuando toma el valor de 60) sumado a las situciones que afronta el docente (cuando toma el valor de 10) y los factores personales que influyen en su actualizacion (100) son de  14.41893 horas. Es decir, como tal se adicionaria unas horas extras de aprox 8.53059 a su labor que cuando todos los factores anteriores son 0. 
+
+
+```{r , message=FALSE, warning=FALSE}
+library(stargazer) 
+stargazer(modelo1,modelo2,modelo3,modelo4, modelo5, mod, type = "text")
+```
+
+
+
+
+
